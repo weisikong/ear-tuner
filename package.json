@@ -1,0 +1,14 @@
+{
+  "name": "eartuner",
+  "version": "1.0.0",
+  "description": "An ear training app that offers note recognition, interval recognition and chord recognition tests.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Venus",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

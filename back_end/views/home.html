@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ear Tuner</title>
+  <script src="../../src/model/earTuner.js"></script>
+</head>
+<body>
+  <h1>Ear Tuner</h1>
+  <h2>Just messing around...</h2>
+  <p>This app supports the following operations:</p>
+  <menu>
+    <li><button type="button" id="play" onclick="play()">Play a random note in an octave
+    </button></li>
+    <li>Upcoming feature: accepting user answer</li>
+    <li>
+      <!--
+        <form id="answer">
+             <input type="button" value="C">
+             <input type="button" value="C#">
+             <input type="button" value="D">
+             <input type="button" value="D#">
+             <input type="button" value="E">
+             <input type="button" value="F">
+             <input type="button" value="F#">
+             <input type="button" value="G">
+             <input type="button" value="G#">
+             <input type="button" value="A">
+             <input type="button" value="Bb">
+             <input type="button" value="B">
+        </form>
+      -->
+      <form>
+        <input type="text" list="answer" placeholder="choose your answer" />
+        <datalist id="answer">
+          <option value="C"></option>
+          <option value="C#"></option>
+          <option value="D"></option>
+          <option value="D#"></option>
+          <option value="E"></option>
+          <option value="F"></option>
+          <option value="F#"></option>
+          <option value="G"></option>
+          <option value="G#"></option>
+          <option value="A"></option>
+          <option value="Bb"></option>
+          <option value="B"></option>
+        </datalist>
+      </form>
+    </li>
+  </menu>
+</body>
+</html>
