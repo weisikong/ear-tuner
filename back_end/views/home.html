@@ -3,51 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <title>Ear Tuner</title>
-  <script src="../../src/model/earTuner.js"></script>
+  <script src='earTuner.js' type="text/javascript">
+  </script>
+  
+  
 </head>
 <body>
   <h1>Ear Tuner</h1>
   <h2>Just messing around...</h2>
   <p>This app supports the following operations:</p>
+  <div id="test"></div>
   <menu>
-    <li><button type="button" id="play" onclick="play()">Play a random note in an octave
-    </button></li>
-    <li>Upcoming feature: accepting user answer</li>
     <li>
-      <!--
-        <form id="answer">
-             <input type="button" value="C">
-             <input type="button" value="C#">
-             <input type="button" value="D">
-             <input type="button" value="D#">
-             <input type="button" value="E">
-             <input type="button" value="F">
-             <input type="button" value="F#">
-             <input type="button" value="G">
-             <input type="button" value="G#">
-             <input type="button" value="A">
-             <input type="button" value="Bb">
-             <input type="button" value="B">
-        </form>
-      -->
-      <form>
-        <input type="text" list="answer" placeholder="choose your answer" />
-        <datalist id="answer">
-          <option value="C"></option>
-          <option value="C#"></option>
-          <option value="D"></option>
-          <option value="D#"></option>
-          <option value="E"></option>
-          <option value="F"></option>
-          <option value="F#"></option>
-          <option value="G"></option>
-          <option value="G#"></option>
-          <option value="A"></option>
-          <option value="Bb"></option>
-          <option value="B"></option>
-        </datalist>
-      </form>
+      <button type="button" id="play" onclick="play()">Play a random note in an octave</button>
     </li>
+    <li>
+      <button type="button" id="relative" onclick="playRelativeNote()">Play C</button>
+    </li>
+    <li>Upcoming feature: Play a relative note</li> 
   </menu>
+  <form action="/register" method="POST">
+    <button type="submit" name="action" value="0">G#</button>
+    <button type="submit" name="action" value="1">A</button>
+    <button type="submit" name="action" value="2">Bb</button>
+    <button type="submit" name="action" value="3">B</button>
+    <button type="submit" name="action" value="4">C</button>
+    <button type="submit" name="action" value="5">C#</button>
+    <button type="submit" name="action" value="6">D</button>
+    <button type="submit" name="action" value="7">Eb</button>
+    <button type="submit" name="action" value="8">E</button>
+    <button type="submit" name="action" value="9">F</button>
+    <button type="submit" name="action" value="10">F#</button>
+    <button type="submit" name="action" value="11">G</button>
+    <input id="correctAnswer" type="hidden" name="correctAnswer" />
+  </form>
 </body>
 </html>

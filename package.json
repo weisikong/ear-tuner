@@ -9,6 +9,7 @@
   "author": "Venus",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "play-sound": "^1.1.2"
   }
 }
