@@ -3,16 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <title>Ear Tuner</title>
-  <script src='earTuner.js' type="text/javascript">
-  </script>
   
+  <script src='playSounds.js' type="text/javascript"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
+  <!--
+  <script src="jquery-2.1.0.min.js"></script>
+  -->
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      document.getElementById('sendMessage').onclick = function(){
+        var correctAnswer = document.getElementById("correctAnswer").value;
+        var message = {correctAnswer: correctAnswer};
+        //document.getElementById("test").innerHTML = answer;
+
+        req = new XMLHttpRequest();
+        req.open("POST", "/api/users", true);
+        req.setRequestHeader('Content-Type', 'application/json');
+        req.onreadystatechange = function(){
+          if (req.readyState === 4 && req.status === 200){
+            document.getElementsByClassName('answer')[0].innerHTML = req.responseText;
+          }
+        };
+        req.send(JSON.stringify(message));
+      };
+      });
+  </script>
+
   
 </head>
 <body>
   <h1>Ear Tuner</h1>
   <h2>Just messing around...</h2>
   <p>This app supports the following operations:</p>
-  <div id="test"></div>
+  <div id="form-messages"></div>
   <menu>
     <li>
       <button type="button" id="play" onclick="play()">Play a random note in an octave</button>
@@ -22,20 +47,26 @@
     </li>
     <li>Upcoming feature: Play a relative note</li> 
   </menu>
-  <form action="/register" method="POST">
-    <button type="submit" name="action" value="0">G#</button>
-    <button type="submit" name="action" value="1">A</button>
-    <button type="submit" name="action" value="2">Bb</button>
-    <button type="submit" name="action" value="3">B</button>
-    <button type="submit" name="action" value="4">C</button>
-    <button type="submit" name="action" value="5">C#</button>
-    <button type="submit" name="action" value="6">D</button>
-    <button type="submit" name="action" value="7">Eb</button>
-    <button type="submit" name="action" value="8">E</button>
-    <button type="submit" name="action" value="9">F</button>
-    <button type="submit" name="action" value="10">F#</button>
-    <button type="submit" name="action" value="11">G</button>
+  <form name="submission" id="form1" method="post" >
+    <input type="text" name="test">
+    <button type="submit" name="answer" value="0">G#</button>
+    <button type="submit" name="answer" value="1">A</button>
+    <button type="submit" name="answer" value="2">Bb</button>
+    <button type="submit" name="answer" value="3">B</button>
+    <button type="submit" name="answer" value="4">C</button>
+    <button type="submit" name="answer" value="5">C#</button>
+    <button type="submit" name="answer" value="6">D</button>
+    <button type="submit" name="answer" value="7">Eb</button>
+    <button type="submit" name="answer" value="8">E</button>
+    <button type="submit" name="answer" value="9">F</button>
+    <button type="submit" name="answer" value="10">F#</button>
+    <button type="submit" name="answer" value="11">G</button>
     <input id="correctAnswer" type="hidden" name="correctAnswer" />
   </form>
+  <button type="button" id="sendMessage" >click</button>
+
+  <div class="answer">
+  </div>
+
 </body>
 </html>
