@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 
 
 // make your audio file available for the browser
-app.use(express.static('pianoNotes'));
+app.use(express.static('back_end/public/pianoNotes'));
 
 app.get("/", (req, res) =>  {
     html = fs.readFileSync("back_end/views/home.html", "utf8");
@@ -41,11 +41,9 @@ app.post("/api/users", (req, res) => {
     console.log(req.body);
     //res.json({message: "Your answer is: " + req.body.answer + ". The correct answer is: " + req.body.correctAnswer});
     if (req.body.answer == req.body.correctAnswer) {
-        //res.json({message: "Yes you got it!"});
         res.send("Yes you got it!");
 
     } else {
-        //res.json({message: "Opps! That wasn't it."});
         res.send("Opps! That wasn't it.");
     }
 });
