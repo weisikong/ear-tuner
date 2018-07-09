@@ -44,12 +44,12 @@ app.get("/", (req, res) =>  {
 });
 
 app.get("/playSounds.js", (req, res) => {
-    script = fs.readFileSync("views/playSounds.js", "utf8");
+    script = fs.readFileSync("playSounds.js", "utf8");
     res.send(script);
 });
 
 app.get("/ajax.js", (req, res) => {
-    script = fs.readFileSync("views/ajax.js", "utf8");
+    script = fs.readFileSync("ajax.js", "utf8");
     res.send(script);
 });
 
