@@ -75,9 +75,11 @@ app.get("/interval", function(req, res) {
     res.render('upcoming', {});
 });
 
+/*
 app.get("/chord", function(req, res) {
     res.render('upcoming', {});
 });
+*/
 
 app.post("/api/users", (req, res) => {
     console.log(req.body);
