@@ -22,7 +22,8 @@ app.engine('.hbs', exphbs({
                 ((url == app.locals.activeRoute) ? ' class="active" ' : '') +
                 '><a href="' + url + '">' + options.fn(this) + '</a></li>';
         }
-    }
+    },
+    defaultLayout: 'main'
 }));
 app.set('view engine', '.hbs');
 
@@ -39,8 +40,21 @@ app.use(express.static('public'));
 //app.use(express.static('public/css'));
 
 app.get("/", (req, res) =>  {
-    html = fs.readFileSync("views/home.html", "utf8");
-    res.send(html);
+    res.render('home', {});
+    //html = fs.readFileSync("views/home.html", "utf8");
+    //res.send(html);
+});
+
+app.get("/practices", function(req, res) {
+    res.render('practices', {});
+});
+
+app.get("/test", function(req, res) {
+    res.render('upcoming', {});
+});
+
+app.get("/how-to-use", function(req, res) {
+    res.render('howToUse', {});
 });
 
 app.get("/playSounds.js", (req, res) => {
@@ -51,6 +65,18 @@ app.get("/playSounds.js", (req, res) => {
 app.get("/ajax.js", (req, res) => {
     script = fs.readFileSync("ajax.js", "utf8");
     res.send(script);
+});
+
+app.get("/pitch", function(req, res) {
+    res.render('pitch', {});
+});
+
+app.get("/interval", function(req, res) {
+    res.render('upcoming', {});
+});
+
+app.get("/chord", function(req, res) {
+    res.render('upcoming', {});
 });
 
 app.post("/api/users", (req, res) => {

@@ -14,6 +14,10 @@ function play() {
     "g"];
 
     var index = Math.floor(Math.random() * 12);
+/*
+    var indexMatching = ["G#", "A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G"];
+    document.getElementById("correctAnswer").value = indexMatching[index];
+*/  document.getElementById("form-messages").innerHTML = "";
     document.getElementById("correctAnswer").value = index;
     var audio = new Audio("/pianoNotes/piano-" + octave[index] + ".wav");
     audio.play();
