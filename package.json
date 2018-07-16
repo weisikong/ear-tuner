@@ -4,7 +4,7 @@
   "description": "An ear training app that offers note recognition, interval recognition and chord recognition tests.",
   "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "author": "Venus",
   "license": "ISC",
