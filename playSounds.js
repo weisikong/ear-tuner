@@ -1,6 +1,6 @@
 function play() {
 
-    var octave = ["g-sharp",
+    octave = ["g-sharp",
     "a",
     "bb",
     "b",
@@ -13,7 +13,7 @@ function play() {
     "f-sharp",
     "g"];
 
-    var index = Math.floor(Math.random() * 12);
+    index = Math.floor(Math.random() * 12);
 /*
     var indexMatching = ["G#", "A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G"];
     document.getElementById("correctAnswer").value = indexMatching[index];
@@ -29,6 +29,10 @@ function playRelativeNote() {
     audio.play();
 }
 
+function playAgain() {
+    var audio = new Audio("/pianoNotes/piano-" + octave[index] + ".wav");
+    audio.play();   
+}
 
 /*
 function nodePlay() {

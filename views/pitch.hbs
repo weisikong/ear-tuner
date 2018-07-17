@@ -1,26 +1,32 @@
-<div class="text-center">
-    <button class="btn btn-lg btn-info btn-custom" type="button" id="play" onclick="play()">Play a random note in an octave</button>
+
+<div class="row">
+    <div class="col-md-6">
+    <button class="btn btn-outline-info btn-outline-custom" type="button" id="relative" onclick="playRelativeNote()">Play C</button>
+    </div>
+    <div class="col-md-6">
+    <button class="btn btn-outline-info btn-outline-custom" type="button" id="playAgain" onclick="playAgain()">Play Again</button>
+    </div>
 </div>
 <p></p>
 <div class="text-center">
-    <button class="btn btn-outline-info btn-outline-custom" type="button" id="relative" onclick="playRelativeNote()">Play C</button>
+    <button class="btn btn-lg btn-info btn-custom" type="button" id="play" onclick="play()">Play a random note in an octave</button>
 </div>
 </br>
 </br>
 </br>
 
-                <button name="answer" value="1" class="answer btn-info btn-custom">A</button>
-                <button name="answer" value="2" class="answer btn-info btn-custom">Bb</button>
-                <button name="answer" value="3" class="answer btn-info btn-custom">B</button>
-                <button name="answer" value="4" class="answer btn-info btn-custom">C</button>
-                <button name="answer" value="5" class="answer btn-info btn-custom">C#</button>
-                <button name="answer" value="6" class="answer btn-info btn-custom">D</button>
-                <button name="answer" value="7" class="answer btn-info btn-custom">Eb</button>
-                <button name="answer" value="8" class="answer btn-info btn-custom">E</button>
-                <button name="answer" value="9" class="answer btn-info btn-custom">F</button>
-                <button name="answer" value="10" class="answer btn-info btn-custom">F#</button>
-                <button name="answer" value="11" class="answer btn-info btn-custom">G</button>
-                <button name="answer" value="0" class="answer btn-info btn-custom">G#</button>
+<button name="answer" value="1" class="answer btn-info btn-custom">A</button>
+<button name="answer" value="2" class="answer btn-info btn-custom">B<sup>b</sup></button>
+<button name="answer" value="3" class="answer btn-info btn-custom">B</button>
+<button name="answer" value="4" class="answer btn-info btn-custom">C</button>
+<button name="answer" value="5" class="answer btn-info btn-custom">C<sup>#</sup></button>
+<button name="answer" value="6" class="answer btn-info btn-custom">D</button>
+<button name="answer" value="7" class="answer btn-info btn-custom">E<sup>b</sup></button>
+<button name="answer" value="8" class="answer btn-info btn-custom">E</button>
+<button name="answer" value="9" class="answer btn-info btn-custom">F</button>
+<button name="answer" value="10" class="answer btn-info btn-custom">F<sup>#</sup></button>
+<button name="answer" value="11" class="answer btn-info btn-custom">G</button>
+<button name="answer" value="0" class="answer btn-info btn-custom">G<sup>#</sup></button>
 
 <!--
 <form name="form1" id="form1" method="post" class="form-signin" >

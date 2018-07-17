@@ -35,3 +35,13 @@ footer {
     background-color: rgb(63, 150, 138)!important;
     border-color: rgb(63, 150, 138)!important; 
 }
+
+.answer {
+    border-radius: 5px;
+    width: 35px;
+}
+
+.no-underline {
+    text-decoration: none;
+    color: rgb(107, 117, 124);
+}
