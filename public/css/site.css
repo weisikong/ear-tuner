@@ -28,7 +28,8 @@ footer {
 }
 
 .btn-outline-custom {
-    border-color: rgb(87, 197, 183)!important 
+    border-color: rgb(87, 197, 183)!important;
+    color:rgb(87, 197, 183)!important 
 }
 
 .btn-outline-custom:hover {
