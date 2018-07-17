@@ -61,6 +61,7 @@ $(document).ready(function(){
 $(document).ready(function(){
     console.log("document ready!");
     var formMessages = $('#form-messages');
+
     $(".answer").click(function(){        
         var answerValue = $(this).val();
         var correctValue = $(".correctAnswer").val();
@@ -97,7 +98,69 @@ $(document).ready(function(){
             });
         }
          
-    })
+    });
+
+    $("#dolremiButtons").click(function(){
+        alert("yay");
+        $("#button1").text("la");
+        $("#button2").text("si(b)");
+        $("#button3").text("si");
+        $("#button4").text("dol");
+        $("#button5").text("dol(#)");
+        $("#button6").text("re");
+        $("#button7").text("re(#)");
+        $("#button8").text("mi");
+        $("#button9").text("fa");
+        $("#button10").text("fa(#)");
+        $("#button11").text("sol");
+        $("#button12").text("sol(#)");
+    });
+
+    $("#letterButtons").click(function(){
+        alert("yay");
+        $("#button1").text("A");
+        $("#button2").text("Bb");
+        $("#button3").text("B");
+        $("#button4").text("C");
+        $("#button5").text("C#");
+        $("#button6").text("D");
+        $("#button7").text("Eb");
+        $("#button8").text("E");
+        $("#button9").text("F");
+        $("#button10").text("F#");
+        $("#button11").text("G");
+        $("#button12").text("G#");
+    });
+
+    $("#allSharps").click(function(){
+        $("#button1").text("A");
+        $("#button2").text("A#");
+        $("#button3").text("B");
+        $("#button4").text("C");
+        $("#button5").text("C#");
+        $("#button6").text("D");
+        $("#button7").text("D#");
+        $("#button8").text("E");
+        $("#button9").text("F");
+        $("#button10").text("F#");
+        $("#button11").text("G");
+        $("#button12").text("G#");
+    });
+
+    $("#allFlats").click(function(){
+        $("#button1").text("A");
+        $("#button2").text("Bb");
+        $("#button3").text("B");
+        $("#button4").text("C");
+        $("#button5").text("Dd");
+        $("#button6").text("D");
+        $("#button7").text("Eb");
+        $("#button8").text("E");
+        $("#button9").text("F");
+        $("#button10").text("Gb");
+        $("#button11").text("G");
+        $("#button12").text("Ab");
+    });
 });
 
 

@@ -1,10 +1,10 @@
-    /*
+
 
 .narrow-page {
     width: 50%;
     margin: auto;
 }
-*/
+
 body {
     background-color: rgb(244, 247, 246) !important
 }
@@ -37,7 +37,7 @@ footer {
     border-color: rgb(63, 150, 138)!important; 
 }
 
-.answer {
+.answer .pitch {
     border-radius: 5px;
     width: 35px;
 }
@@ -46,3 +46,4 @@ footer {
     text-decoration: none;
     color: rgb(107, 117, 124);
 }
+

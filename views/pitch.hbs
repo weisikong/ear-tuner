@@ -1,4 +1,93 @@
+<div class="row">
+<div class="col-md-4">
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="displayStyle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Display Style
+    </button>
+    <div class="dropdown-menu" aria-labelledby="displayStyle">
+        <a class="dropdown-item" href="#" id="letterButtons" >#+b</a>
+        <a class="dropdown-item" href="#" id="allSharps">#</a>
+        <a class="dropdown-item" href="#" id="allFlats" >b</a>
+        <a class="dropdown-item" href="#" id="dolremiButtons" disabled >dol re mi</a>
+    </div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="range" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Range
+    </button>
+    <div class="dropdown-menu" aria-labelledby="range">
+        <a class="dropdown-item" href="#" id="oneOctave" >One Octave</a>
+        <a class="dropdown-item" href="#" id="multipleOctaves">Multiple Octaves</a>
+    </div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="instrument" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Instrument
+    </button>
+    <div class="dropdown-menu" aria-labelledby="instrument">
+        <a class="dropdown-item" href="#" id="pianoOnly" >Piano only</a>
+        <a class="dropdown-item" href="#" id="multiInstruments">Multi-instrument</a>
+    </div>
+</div>
+</div>
+</div>
 
+<!--
+<div class="narrow-page">
+<div class="row">
+    <div class="col-md-4">
+<div class="card">
+<table class="table">
+    <legend>Display style</legend>
+    <tr>
+        <td><button id="letterButtons" class="btn btn-light" >#+b</button></td>
+    </tr>
+    <tr>
+        <td><button id="allSharps" class="btn btn-light">#</button></td>
+    </tr>
+    <tr>
+        <td><button id="allFlats" class="btn btn-light">b</button></td>
+    </tr>
+    <tr>
+        <td><button id="dolremiButtons" class="btn-light" disabled>dol, re, mi...</button></td>
+    </tr>
+</table>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+    <table class="table">
+        <legend>Range</legend>
+        <tr>
+            <td><button id="octave" class="btn btn-light">Within one octave</button></td>
+        </tr>
+        <tr>
+            <td><button id="multiOctave" class="btn btn-light">More than one octave</button></td>
+        </tr>
+    </table>
+</div>
+</div>
+<div class="col-md-4">
+    <div class="card">
+        <table class="table">
+            <legend>Instrument</legend>
+            <tr>
+                <td><button id="pianoOnly" class="btn btn-light">Piano</button></td>
+            </tr>
+            <tr>
+                <td><button id="multiInstrument" class="btn btn-light">Multi-instrument</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+</div>
+-->
+<br>
 <div class="row">
     <div class="col-md-6">
     <button class="btn btn-outline-info btn-outline-custom" type="button" id="relative" onclick="playRelativeNote()">Play C</button>
@@ -15,18 +104,18 @@
 </br>
 </br>
 </br>
-<button name="answer" value="1" class="answer btn-info btn-custom">A</button>
-<button name="answer" value="2" class="answer btn-info btn-custom">B<sup>b</sup></button>
-<button name="answer" value="3" class="answer btn-info btn-custom">B</button>
-<button name="answer" value="4" class="answer btn-info btn-custom">C</button>
-<button name="answer" value="5" class="answer btn-info btn-custom">C<sup>#</sup></button>
-<button name="answer" value="6" class="answer btn-info btn-custom">D</button>
-<button name="answer" value="7" class="answer btn-info btn-custom">E<sup>b</sup></button>
-<button name="answer" value="8" class="answer btn-info btn-custom">E</button>
-<button name="answer" value="9" class="answer btn-info btn-custom">F</button>
-<button name="answer" value="10" class="answer btn-info btn-custom">F<sup>#</sup></button>
-<button name="answer" value="11" class="answer btn-info btn-custom">G</button>
-<button name="answer" value="0" class="answer btn-info btn-custom">G<sup>#</sup></button>
+<button name="answer" value="1" class="answer pitch btn-info btn-custom" id="button1">A</button>
+<button name="answer" value="2" class="answer btn-info btn-custom" id="button2">B<sup>b</sup></button>
+<button name="answer" value="3" class="answer btn-info btn-custom" id="button3">B</button>
+<button name="answer" value="4" class="answer btn-info btn-custom" id="button4">C</button>
+<button name="answer" value="5" class="answer btn-info btn-custom" id="button5">C<sup>#</sup></button>
+<button name="answer" value="6" class="answer btn-info btn-custom" id="button6">D</button>
+<button name="answer" value="7" class="answer btn-info btn-custom" id="button7">E<sup>b</sup></button>
+<button name="answer" value="8" class="answer btn-info btn-custom" id="button8">E</button>
+<button name="answer" value="9" class="answer btn-info btn-custom" id="button9">F</button>
+<button name="answer" value="10" class="answer btn-info btn-custom" id="button10">F<sup>#</sup></button>
+<button name="answer" value="11" class="answer btn-info btn-custom" id="button11">G</button>
+<button name="answer" value="0" class="answer btn-info btn-custom" id="button12">G<sup>#</sup></button>
 <!--
 <form name="form1" id="form1" method="post" class="form-signin" >
     <div class="card lead text-left">

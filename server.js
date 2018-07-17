@@ -72,12 +72,12 @@ app.get("/pitch", function(req, res) {
 });
 
 app.get("/interval", function(req, res) {
-    res.render('upcoming', {});
+    res.render('interval', {});
 });
 
 
 app.get("/chord", function(req, res) {
-    res.render('upcoming', {});
+    res.render('chord', {});
 });
 
 
