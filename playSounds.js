@@ -7,7 +7,7 @@ function play() {
     "c",
     "c-sharp",
     "d",
-    "e",
+    "eb",
     "e",
     "f",
     "f-sharp",

@@ -7,7 +7,7 @@ global.document = document;
 
 var $ = require('jquery')(window);
 */
-
+/*
 $(document).ready(function(){
     console.log("document ready!");
 
@@ -56,14 +56,15 @@ $(document).ready(function(){
         });       
     });
 });
+*/
 
-/*
 $(document).ready(function(){
     console.log("document ready!");
     var formMessages = $('#form-messages');
-    $(button).addEventListener("click", function(){
-        var value = $(this).value;
-        var buttonData = {"answer": value};
+    $(".answer").click(function(){        
+        var answerValue = $(this).val();
+        var correctValue = $(".correctAnswer").val();
+        var buttonData = {"answer": answerValue, "correctAnswer": correctValue};
         $.ajax({
             type: 'POST',
             url: "/api/users",
@@ -95,6 +96,6 @@ $(document).ready(function(){
         }); 
     })
 });
-*/
+
 
 
