@@ -57,8 +57,44 @@ $(document).ready(function(){
     });
 });
 
-
-
-
+/*
+$(document).ready(function(){
+    console.log("document ready!");
+    var formMessages = $('#form-messages');
+    $(button).addEventListener("click", function(){
+        var value = $(this).value;
+        var buttonData = {"answer": value};
+        $.ajax({
+            type: 'POST',
+            url: "/api/users",
+            data: buttonData
+        })   
+        .done(function(response) {
+            // Make sure that the formMessages div has the 'success' class.
+            $(formMessages).removeClass('error');
+            $(formMessages).addClass('success');
+        
+            // Set the message text.
+            $(formMessages).text(response);          
+            
+            // Clear the form.
+            $('#answer').val('');
+            $('#correctAnswer').val('');   
+        })
+        .fail(function(data) {
+            // Make sure that the formMessages div has the 'error' class.
+            $(formMessages).removeClass('success');
+            $(formMessages).addClass('error');
+        
+            // Set the message text.
+            if (data.responseText !== '') {
+                $(formMessages).text(data.responseText);
+            } else {
+                $(formMessages).text('Oops! An error occured and your message could not be sent.');
+            }
+        }); 
+    })
+});
+*/
 
 

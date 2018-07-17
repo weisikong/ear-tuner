@@ -1,17 +1,21 @@
 <div class="text-center">
-    <button class="btn btn-lg btn-info" type="button" id="play" onclick="play()">Play a random note in an octave</button>
+    <button class="btn btn-lg btn-info btn-custom" type="button" id="play" onclick="play()">Play a random note in an octave</button>
 </div>
 <p></p>
 <div class="text-center">
-    <button class="btn btn-lg btn-default" type="button" id="relative" onclick="playRelativeNote()">Play C</button>
+    <button class="btn btn-outline-info btn-outline-custom" type="button" id="relative" onclick="playRelativeNote()">Play C</button>
 </div>
 </br>
 </br>
 </br>
 <form name="form1" id="form1" method="post" class="form-signin" >
-    <div class="form-group well narrow-page lead">
-        <div class="row">
+    <div class="card lead text-left">
+        <div class="card-body">
+        <div class="row card-text">
             <div class="col-md-3">
+                <!--
+                <button name="answer" value="0" class="answer">G#</button>
+                -->
                 <!--
                 <input type="submit" name="answer" value="G#">
                 -->
@@ -36,7 +40,7 @@
                 <input type="radio" name="answer" value="3"> B
             </div>
         </div>
-        <div class="row">
+        <div class="row card-text">
             <div class="col-md-3">
                 <!--
                 <input type="button" name="answer" value="C">
@@ -62,7 +66,7 @@
                 <input type="radio" name="answer" value="7"> Eb
             </div>
         </div>
-        <div class="row">
+        <div class="row card-text">
             <div class="col-md-3">
                 <!--
                 <input type="button" name="answer" value="E">
@@ -88,11 +92,12 @@
                 <input type="radio" name="answer" value="11"> G
             </div>
         </div>
+        </div>
     </div>
     </br>
     <input id="correctAnswer" type="hidden" name="correctAnswer" class="correctAnswer" />
     <div class="container text-center">
-    <button type="submit" class="btn btn-lg btn-info">Go</button>
+    <button type="submit" class="btn btn-lg btn-info btn-custom">Go</button>
     </div>
         <!--
 
