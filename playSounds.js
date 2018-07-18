@@ -1,6 +1,4 @@
-function playPiano() {
-
-    octave = ["g-sharp",
+notes = ["g-sharp",
     "a",
     "bb",
     "b",
@@ -11,45 +9,58 @@ function playPiano() {
     "e",
     "f",
     "f-sharp",
-    "g"];
+    "g", 
+    "g-sharp-2", 
+    "a-2", 
+    "bb-2", 
+    "b-2", 
+    "c-2", 
+    "c-sharp-2", 
+    "d-2", 
+    "eb-2", 
+    "e-2", 
+    "f-2", 
+    "f-sharp-2", 
+    "g-2"];
 
+instruments = ["piano", "flute", "recorder"];
+
+function playPiano() {
     index = Math.floor(Math.random() * 12);    
+    index2 = 0;
 
     document.getElementById("form-messages").innerHTML = "";
     document.getElementById("correctAnswer").value = index;
 
+    var audio = new Audio("/soundNotes/piano-" + notes[index] + ".wav");
+    audio.play();
+}
 
-    var audio = new Audio("/soundNotes/piano-" + octave[index] + ".wav");
+function playPiano2Octaves() {
+    console.log(notes);
+    index = Math.floor(Math.random() * 24);
+    index2 = 0;
+
+    document.getElementById("form-messages").innerHTML = "";
+    document.getElementById("correctAnswer").value = index;
+
+    console.log(notes[index]);
+    var audio = new Audio("/soundNotes/piano-" + notes[index] + ".wav");
     audio.play();
     
 }
 
 function playMultiInstruments() {
 
-    octave = ["g-sharp",
-    "a",
-    "bb",
-    "b",
-    "c",
-    "c-sharp",
-    "d",
-    "eb",
-    "e",
-    "f",
-    "f-sharp",
-    "g"];
-
     index = Math.floor(Math.random() * 12);
     index2 = Math.floor(Math.random() * 3);
     
-
-    instruments = ["piano", "flute", "recorder"];
+    
 
     document.getElementById("form-messages").innerHTML = "";
     document.getElementById("correctAnswer").value = index;
 
-
-    var audio = new Audio("/soundNotes/" + instruments[index2] + "-" + octave[index] + ".wav");
+    var audio = new Audio("/soundNotes/" + instruments[index2] + "-" + notes[index] + ".wav");
     audio.play();
     
 }
@@ -60,21 +71,8 @@ function playRelativeNote() {
 }
 
 function playAgain() {
-    var audio = new Audio("/soundNotes/piano-" + octave[index] + ".wav");
+    var audio = new Audio("/soundNotes/" + instruments[index2] + "-" + notes[index] + ".wav");
     audio.play();   
 }
 
-/*
-function nodePlay() {
-    // testing if this function is called and if it works
-    document.getElementById("test").innerHTML = "<p>Paragraph changed.</p>";
-    console.log("yeah");
-    // play a note
-    var index = Math.floor(Math.random() * 12);
-    document.getElementById("correctAnswer").value = index;
-    player.play('piano-c.wav', function(err) {
-        if (err) console.log('Could not play sound: ${err}');
-    });
-}
-*/
 

@@ -84,9 +84,9 @@ app.get("/chord", function(req, res) {
 app.post("/api/users", (req, res) => {
     console.log(req.body);
     //res.json({message: "Your answer is: " + req.body.answer + ". The correct answer is: " + req.body.correctAnswer});
-    if (req.body.answer == req.body.correctAnswer) {
+    if (req.body.answer == req.body.correctAnswer 
+    || req.body.answer == req.body.correctAnswer - 12) {
         res.send("Yes you got it!");
-
     } else {
         res.send("Opps! That wasn't it.");
     }

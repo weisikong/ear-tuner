@@ -100,6 +100,7 @@ $(document).ready(function(){
          
     });
 
+    //display style
     $("#dolremiButtons").click(function(){
         $("#button1").text("la");
         $("#button2").text("si(b)");
@@ -160,6 +161,15 @@ $(document).ready(function(){
         $("#button12").text("Ab");
     });
 
+    //range
+    $("#oneOctave").click(function(){
+        $("#play").attr("onclick", "playPiano()");
+    });
+    $("#twoOctaves").click(function(){
+        $("#play").attr("onclick", "playPiano2Octaves()");
+    });
+
+    //instruments
     $("#pianoOnly").click(function(){
         $("#play").attr("onclick", "playPiano()");
     });
