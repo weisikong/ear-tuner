@@ -159,6 +159,14 @@ $(document).ready(function(){
         $("#button11").text("G");
         $("#button12").text("Ab");
     });
+
+    $("#pianoOnly").click(function(){
+        $("#play").attr("onclick", "playPiano()");
+    });
+    $("#multiInstruments").click(function(){
+        $("#play").attr("onclick", "playMultiInstruments()");
+    });
+
 });
 
 

@@ -1,4 +1,30 @@
-function play() {
+function playPiano() {
+
+    octave = ["g-sharp",
+    "a",
+    "bb",
+    "b",
+    "c",
+    "c-sharp",
+    "d",
+    "eb",
+    "e",
+    "f",
+    "f-sharp",
+    "g"];
+
+    index = Math.floor(Math.random() * 12);    
+
+    document.getElementById("form-messages").innerHTML = "";
+    document.getElementById("correctAnswer").value = index;
+
+
+    var audio = new Audio("/pianoNotes/piano-" + octave[index] + ".wav");
+    audio.play();
+    
+}
+
+function playMultiInstruments() {
 
     octave = ["g-sharp",
     "a",
@@ -14,12 +40,16 @@ function play() {
     "g"];
 
     index = Math.floor(Math.random() * 12);
-/*
-    var indexMatching = ["G#", "A", "Bb", "B", "C", "C#", "D", "Eb", "E", "F", "F#", "G"];
-    document.getElementById("correctAnswer").value = indexMatching[index];
-*/  document.getElementById("form-messages").innerHTML = "";
+    index2 = Math.floor(Math.random() * 2);
+    
+
+    instruments = ["piano", "flute"];
+
+    document.getElementById("form-messages").innerHTML = "";
     document.getElementById("correctAnswer").value = index;
-    var audio = new Audio("/pianoNotes/piano-" + octave[index] + ".wav");
+
+
+    var audio = new Audio("/pianoNotes/" + instruments[index2] + "-" + octave[index] + ".wav");
     audio.play();
     
 }
