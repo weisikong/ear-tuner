@@ -36,12 +36,12 @@ footer {
     background-color: rgb(63, 150, 138)!important;
     border-color: rgb(63, 150, 138)!important; 
 }
-
-.answer .pitch {
+/*
+.pitch {
     border-radius: 5px;
-    width: 35px;
+    width: 35px !important;
 }
-
+*/
 .no-underline {
     text-decoration: none;
     color: rgb(107, 117, 124);

@@ -101,7 +101,6 @@ $(document).ready(function(){
     });
 
     $("#dolremiButtons").click(function(){
-        alert("yay");
         $("#button1").text("la");
         $("#button2").text("si(b)");
         $("#button3").text("si");
@@ -117,7 +116,6 @@ $(document).ready(function(){
     });
 
     $("#letterButtons").click(function(){
-        alert("yay");
         $("#button1").text("A");
         $("#button2").text("Bb");
         $("#button3").text("B");
