@@ -19,7 +19,7 @@ function playPiano() {
     document.getElementById("correctAnswer").value = index;
 
 
-    var audio = new Audio("/pianoNotes/piano-" + octave[index] + ".wav");
+    var audio = new Audio("/soundNotes/piano-" + octave[index] + ".wav");
     audio.play();
     
 }
@@ -40,27 +40,27 @@ function playMultiInstruments() {
     "g"];
 
     index = Math.floor(Math.random() * 12);
-    index2 = Math.floor(Math.random() * 2);
+    index2 = Math.floor(Math.random() * 3);
     
 
-    instruments = ["piano", "flute"];
+    instruments = ["piano", "flute", "recorder"];
 
     document.getElementById("form-messages").innerHTML = "";
     document.getElementById("correctAnswer").value = index;
 
 
-    var audio = new Audio("/pianoNotes/" + instruments[index2] + "-" + octave[index] + ".wav");
+    var audio = new Audio("/soundNotes/" + instruments[index2] + "-" + octave[index] + ".wav");
     audio.play();
     
 }
 
 function playRelativeNote() {
-    var audio = new Audio("/pianoNotes/piano-c.wav");
+    var audio = new Audio("/soundNotes/piano-c.wav");
     audio.play();
 }
 
 function playAgain() {
-    var audio = new Audio("/pianoNotes/piano-" + octave[index] + ".wav");
+    var audio = new Audio("/soundNotes/piano-" + octave[index] + ".wav");
     audio.play();   
 }
 
