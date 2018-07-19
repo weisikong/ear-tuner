@@ -18,9 +18,9 @@ app.engine('.hbs', exphbs({
     extname: '.hbs',
     helpers: {
         navLink: function (url, options) {
-            return '<li' +
-                ((url == app.locals.activeRoute) ? ' class="active" ' : '') +
-                '><a href="' + url + '">' + options.fn(this) + '</a></li>';
+            return '<li class="nav-item ' +
+                ((url == app.locals.activeRoute) ? ' active" ' : '"') +
+                '><a class="nav-link" href="' + url + '">' + options.fn(this) + '</a></li>';
         }
     },
     defaultLayout: 'main'
@@ -33,11 +33,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Parses the text as JSON and exposes the resulting object on req.body
 app.use(bodyParser.json());
 
-
 // make your audio file available for the browser
 app.use(express.static('public'));
 
-//app.use(express.static('public/css'));
+app.use(function(req,res,next){
+    let route = req.baseUrl + req.path;
+    app.locals.activeRoute = (route == "/") ? "/" : route.replace(/\/$/, "");
+    next();
+});
 
 app.get("/", (req, res) =>  {
     res.render('home', {});
@@ -90,6 +93,10 @@ app.post("/api/users", (req, res) => {
     } else {
         res.send("Opps! That wasn't it.");
     }
+});
+
+app.use((req, res) => {
+    res.status(404).send("Page not found");
 });
 
 app.listen(HTTP_PORT, onHttpStart);

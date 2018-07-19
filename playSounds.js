@@ -75,4 +75,30 @@ function playAgain() {
     audio.play();   
 }
 
+function playFirstNote() {
+    var audio1 = new Audio("/soundNotes/piano-c.wav");
+    audio1.play();
+    /*
+    return new Promise((resolve, reject) => {
+        audio1.play();
+        resolve();
+    });
+    */
+}
 
+function playSecondNote() {
+    index = Math.floor(Math.random() * 12);
+
+    document.getElementById("form-messages").innerHTML = "";
+    document.getElementById("correctAnswer").value = index;
+
+    var audio2 = new Audio("/soundNotes/piano-" + notes[index] + ".wav");
+    audio2.play();
+}
+
+function playInterval() {
+    playFirstNote();
+    setTimeout(() => {
+        playSecondNote();
+    }, 1000);
+}
