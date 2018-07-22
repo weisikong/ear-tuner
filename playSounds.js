@@ -1,5 +1,31 @@
-notes = ["g-sharp",
-    "a",
+// bass a2 is as a3
+notes = ["a3",
+"bb3",
+"b3",
+"c4",
+"csharp4",
+"d4",
+"eb4",
+"e4",
+"f4",
+"fsharp4",
+"g4",
+"gsharp4",
+"a4",
+"bb4",
+"b4",
+"c5",
+"csharp5",
+"d5",
+"eb5",
+"e5",
+"f5",
+"fsharp5",
+"g5",
+"gsharp5",
+"a5"];
+/*
+notes = ["a",
     "bb",
     "b",
     "c",
@@ -9,8 +35,8 @@ notes = ["g-sharp",
     "e",
     "f",
     "f-sharp",
-    "g", 
-    "g-sharp-2", 
+    "g",
+    "g-sharp",
     "a-2", 
     "bb-2", 
     "b-2", 
@@ -21,9 +47,10 @@ notes = ["g-sharp",
     "e-2", 
     "f-2", 
     "f-sharp-2", 
-    "g-2"];
-
-instruments = ["piano", "flute", "recorder"];
+    "g-2",
+    "g-sharp-2"];
+*/
+instruments = ["piano", "flute", "recorder", "harp"];
 
 function playPiano() {
     index = Math.floor(Math.random() * 12);    
@@ -53,7 +80,7 @@ function playPiano2Octaves() {
 function playMultiInstruments() {
 
     index = Math.floor(Math.random() * 12);
-    index2 = Math.floor(Math.random() * 3);
+    index2 = Math.floor(Math.random() * 4);
     
     
 
@@ -66,7 +93,7 @@ function playMultiInstruments() {
 }
 
 function playRelativeNote() {
-    var audio = new Audio("/soundNotes/piano-c.wav");
+    var audio = new Audio("/soundNotes/piano-c4.wav");
     audio.play();
 }
 
@@ -76,23 +103,22 @@ function playAgain() {
 }
 
 function playFirstNote() {
-    var audio1 = new Audio("/soundNotes/piano-c.wav");
+    index = Math.floor(Math.random() * 12);
+    console.log(index);
+    document.getElementById("form-messages").innerHTML = "";
+    document.getElementById("firstNote").value = index;
+
+    var audio1 = new Audio("/soundNotes/piano-" + notes[index] + ".wav");
     audio1.play();
-    /*
-    return new Promise((resolve, reject) => {
-        audio1.play();
-        resolve();
-    });
-    */
 }
 
 function playSecondNote() {
-    index = Math.floor(Math.random() * 12);
+    index2 = Math.floor(Math.random() * 12);
+    console.log(index2);
+    //document.getElementById("form-messages").innerHTML = "";
+    document.getElementById("secondNote").value = index2;
 
-    document.getElementById("form-messages").innerHTML = "";
-    document.getElementById("correctAnswer").value = index;
-
-    var audio2 = new Audio("/soundNotes/piano-" + notes[index] + ".wav");
+    var audio2 = new Audio("/soundNotes/piano-" + notes[index2] + ".wav");
     audio2.play();
 }
 
@@ -100,5 +126,14 @@ function playInterval() {
     playFirstNote();
     setTimeout(() => {
         playSecondNote();
+    }, 1000);
+}
+
+function playIntervalAgain() {
+    var audio1 = new Audio("/soundNotes/piano-" + notes[index] + ".wav");
+    var audio2 = new Audio("/soundNotes/piano-" + notes[index2] + ".wav");
+    audio1.play();
+    setTimeout(() => {
+        audio2.play();
     }, 1000);
 }

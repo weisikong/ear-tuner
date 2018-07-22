@@ -100,6 +100,45 @@ $(document).ready(function(){
          
     });
 
+    $(".intervalAnswer").click(function(){        
+        var answerValue = $(this).val();
+        var firstNote = $(".firstNote").val();
+        var secondNote = $(".secondNote").val();
+        var buttonData = {"answer": answerValue, "firstNote": firstNote, "secondNote": secondNote};
+        if (firstNote) {
+            $.ajax({
+                type: 'POST',
+                url: "/api/users",
+                data: buttonData
+            })   
+            .done(function(response) {
+                // Make sure that the formMessages div has the 'success' class.
+                $(formMessages).removeClass('error');
+                $(formMessages).addClass('success');
+            
+                // Set the message text.
+                $(formMessages).text(response);          
+                
+                // Clear the form.
+                $('#answer').val('');
+                //$('#correctAnswer').val('');   
+            })
+            .fail(function(data) {
+                // Make sure that the formMessages div has the 'error' class.
+                $(formMessages).removeClass('success');
+                $(formMessages).addClass('error');
+            
+                // Set the message text.
+                if (data.responseText !== '') {
+                    $(formMessages).text(data.responseText);
+                } else {
+                    $(formMessages).text('Oops! An error occured and your message could not be sent.');
+                }
+            });
+        }
+         
+    });
+
     //display style
     $("#dolremiButtons").click(function(){
         $("#button1").text("la");
