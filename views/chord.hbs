@@ -4,72 +4,39 @@
     <button class="btn btn-outline-info btn-outline-custom" type="button" id="playAgain" onclick="playAgain()">Play Again</button>
     </div>
 </div>
-<p></p>
 <div class="text-center">
-    <button class="btn btn-lg btn-info btn-custom" type="button" id="play" onclick="play()">Play a random chord</button>
+    <button class="btn btn-lg btn-info btn-custom" type="button" id="play" onclick="playChord()">Play a random chord</button>
 </div>
 </br>
-</br>
-</br>
-<div class="narrow-page">
-<div class="row">
-<div class="col-md-6">
-<button name="answer" value="1" class="answer btn btn-info btn-custom">Minor 2nd</button>
-</div>
-<div class="col-md-6">
-<button name="answer" value="2" class="answer btn btn-info btn-custom">Major 2nd</button>
-</div>
-</div>
-<br>
-<div class="row">
-<div class="col-md-6">
-<button name="answer" value="3" class="answer btn-info btn-custom">Minor 3rd</button>
-</div>
-<div class="col-md-6">
-<button name="answer" value="4" class="answer btn-info btn-custom">Major 3rd</button>
-</div>
-</div>
-<br>
-<div class="row">
-<div class="col-md-6">
-<button name="answer" value="5" class="answer btn-info btn-custom">Perfect 4th</button>
-</div>
-<div class="col-md-6">
-<button name="answer" value="6" class="answer btn-info btn-custom">Aug 4th</button>
-</div>
-</div>
-<br>
-<div class="row">
-<div class="col-md-12">
-<button name="answer" value="7" class="answer btn-info btn-custom">Perfect 5th</button>
-</div>
-</div>
-<br>
-<div class="row">
-<div class="col-md-6">
-<button name="answer" value="8" class="answer btn-info btn-custom">Aug 5th/Minor 6th</button>
-</div>
-<div class="col-md-6">
-<button name="answer" value="9" class="answer btn-info btn-custom">Major 6th</button>
-</div>
-</div>
-<br>
-<div class="row">
-<div class="col-md-6">
-<button name="answer" value="10" class="answer btn-info btn-custom">Minor 7th</button>
-</div> 
-<div class="col-md-6">
-<button name="answer" value="11" class="answer btn-info btn-custom">Major 7th</button>
-</div>
-</div>
-<br>
-<div class="row">
-<div class="col-md-12">
-<button name="answer" value="0" class="answer btn-info btn-custom">Octave</button>
-</div>
-</div>
-</div>
-    <input id="correctAnswer" type="hidden" name="correctAnswer" class="correctAnswer" />
+<select class="custom-select" id="selectRoot">
+    <option selected>Choose..</option>
+    <option value="0">C</option>
+    <option value="1">Db</option>
+    <option value="2">D</option>
+    <option value="3">Eb</option>
+    <option value="4">E</option>
+    <option value="5">F</option>
+    <option value="6">F#</option>
+    <option value="7">G</option>
+    <option value="8">Ab</option>
+    <option value="9">A</option>
+    <option value="10">Bb</option>
+    <option value="11">B</option>
+</select>
+<br><br>
+<button name="answer" value="0" class="answer btn btn-info btn-custom">Maj</button>
+<button name="answer" value="1" class="answer btn btn-info btn-custom">Maj7</button>
+<button name="answer" value="2" class="answer btn btn-info btn-custom">m</button>
+<button name="answer" value="3" class="answer btn btn-info btn-custom">m7</button>
+<button name="answer" value="4" class="answer btn btn-info btn-custom">m7b5</button>
+<button name="answer" value="5" class="answer btn btn-info btn-custom">7</button>
+<button name="answer" value="6" class="answer btn btn-info btn-custom">sus</button>
+<button name="answer" value="7" class="answer btn btn-info btn-custom">7sus</button>
+    <input id="correctRoot" type="hidden" name="correctRoot" class="correctRoot" />
+    <input id="chordNote1" type="hidden" name="chordNote1" class="chordNote1" />
+    <input id="chordNote2" type="hidden" name="chordNote2" class="chordNote2" />
+    <input id="chordNote3" type="hidden" name="chordNote3" class="chordNote3" />
+
 <br><br><br>
 <div class="row">
     <div class="col-md-12 text-center lead">

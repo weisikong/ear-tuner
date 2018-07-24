@@ -137,3 +137,44 @@ function playIntervalAgain() {
         audio2.play();
     }, 1000);
 }
+
+function playRandomThirdChord() {
+    index1 = Math.floor(Math.random() * 12);
+    index2 = index1 + Math.floor(Math.random() * 4) + 3;
+    if (index2 == 3) {
+        index3 = 4;
+    } else if (index2 == 4) {
+        index3 = 3;
+    }
+    //index3 = index2 + Math.floor(Math.random() * 4) + 3;
+    var note1 = new Audio("/soundNotes/piano-" + notes[index1] + ".wav");
+    var note2 = new Audio("/soundNotes/piano-" + notes[index2] + ".wav");
+    //var note3 = new Audio("/soundNotes/piano-" + notes[index3] + ".wav");
+
+    document.getElementById("form-messages").innerHTML = "";
+    document.getElementById("chordNote1").value = index1;
+    document.getElementById("chordNote2").value = index2;
+    //document.getElementById("chordNote3").value = index3;
+
+    note1.play();
+    note2.play();
+    //note3.play();
+}
+
+function playRandomSeventhChord() {
+    index1 = Math.floor(Math.random() * 12);
+    index2 = index1 + Math.floor(Math.random() * 4) + 3;
+    index3 = index2 + Math.floor(Math.random() * 4) + 3;
+    var note1 = new Audio("/soundNotes/piano-" + notes[index1] + ".wav");
+    var note2 = new Audio("/soundNotes/piano-" + notes[index2] + ".wav");
+    //var note3 = new Audio("/soundNotes/piano-" + notes[index3] + ".wav");
+
+    document.getElementById("form-messages").innerHTML = "";
+    document.getElementById("chordNote1").value = index1;
+    document.getElementById("chordNote2").value = index2;
+    //document.getElementById("chordNote3").value = index3;
+
+    note1.play();
+    note2.play();
+    //note3.play();
+}
