@@ -17,10 +17,18 @@ footer {
 
 }
 
+@media only screen and (max-width: 414px) {
+    .btn {
+        margin-bottom: 4px;
+    }
+    .footer {
+        line-height: 20px;
+    }
+}
+
 .btn-custom {
     background-color: rgb(87, 197, 183)!important;
     border-color: rgb(87, 197, 183)!important;
-    margin-bottom:2px;
 }
 
 .btn-custom:hover {
@@ -32,7 +40,6 @@ footer {
     border-color: rgb(87, 197, 183)!important;
     color:rgb(87, 197, 183)!important;
     background-color: transparent;
-    margin-bottom: 2px;
 }
 
 .btn-outline-custom:hover {
@@ -54,12 +61,9 @@ footer {
     background-color: rgb(244, 247, 246);
 }
 
-.footer {
-    line-height: 20px;
-}
+
 
 .starter-template {
     padding-top: 0px;
 }
-
 
