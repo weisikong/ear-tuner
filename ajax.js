@@ -216,6 +216,17 @@ $(document).ready(function(){
         $("#play").attr("onclick", "playMultiInstruments()");
     });
 
+    //interval
+    $("#simultaneous").click(function() {
+        $("#playSimultaneously").text("Play Simultaneously");
+        $("#playInterval").attr("onclick", "playIntervalSync()");
+        $("#playAgain").attr("onclick", "playIntervalAgainSync()");
+    });
+    $("#oneNoteAtATime").click(function() {
+        $("#playSimultaneously").text("One Note at a Time");
+        $("#playInterval").attr("onclick", "playInterval()");
+        $("#playAgain").attr("onclick", "playIntervalAgain()");
+    });
 });
 
 
