@@ -152,15 +152,16 @@ function playIntervalAgainSync() {
 
 function playRandomThirdChord() {
     index1 = Math.floor(Math.random() * 12);
-    index2 = index1 + Math.floor(Math.random() * 4) + 3;
-    /* var index3;
-    if (index2 == 3) {
-        index3 = 4;
-    } else if (index2 == 4) {
-        index3 = 3;
-    } */
-    //console.log(index3);
-    index3 = index2 + Math.floor(Math.random() * 4) + 3;
+    index2 = index1 + Math.floor(Math.random() * 2) + 3;
+    //var index3 = 3;
+    console.log(index1);
+    console.log(index2);
+    if (index2 - index1 == 3) {
+        index3 = index2 + 4;
+    } else if (index2 - index1 == 4) {
+        index3 = index2 + 3;
+    } 
+    console.log(index3);
     var note1 = new Audio("/soundNotes/piano-" + notes[index1] + ".wav");
     var note2 = new Audio("/soundNotes/piano-" + notes[index2] + ".wav");
     var note3 = new Audio("/soundNotes/piano-" + notes[index3] + ".wav");
@@ -171,7 +172,13 @@ function playRandomThirdChord() {
     document.getElementById("chordNote3").value = index3;
 
     note1.play();
-    note2.play();
+    setTimeout(() => {
+        note2.play();
+        setTimeout(() => {
+            note3.play();
+        }, 1000);
+    }, 1000);
+    //note2.play();
     //note3.play();
 }
 
