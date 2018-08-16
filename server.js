@@ -190,7 +190,7 @@ app.get("/logout", (req, res) => {
 });
  */
 app.use((req, res) => {
-    res.status(404).send("Page not found");
+    res.status(404).send("Opps! Page not found. Are you sure you wanna go there?");
 });
 
 app.listen(HTTP_PORT, onHttpStart);

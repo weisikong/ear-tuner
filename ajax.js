@@ -146,10 +146,12 @@ $(document).ready(function(){
     $("#oneOctave").click(function(){
         $("#play").attr("onclick", "playPiano()");
         $("#range").text("One Octave");
+        $("#instrument").text("Piano Only");
     });
     $("#twoOctaves").click(function(){
         $("#play").attr("onclick", "playPiano2Octaves()");
         $("#range").text("2 Octaves");
+        $("#instrument").text("Piano Only");
     });
 
     //instruments
@@ -160,6 +162,7 @@ $(document).ready(function(){
     $("#multiInstruments").click(function(){
         $("#play").attr("onclick", "playMultiInstruments()");
         $("#instrument").text("Multi Instruments");
+        $("#range").text("One Octave");
     });
 
     //interval
