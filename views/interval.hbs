@@ -1,96 +1,98 @@
 <div class="jumbotron">
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="playSimultaneously" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        One Note at a Time
-    </button>
-    <div class="dropdown-menu" aria-labelledby="playSilmultaneously">
-        <a class="dropdown-item" href="#" id="simultaneous" >Simultaneous</a>
-        <a class="dropdown-item" href="#" id="oneNoteAtATime">One Note at a Time</a>
+    <div class="row">
+        <div class="col-md-3 offset-md-3">
+            <div id="scoreOutput">&nbsp;</div>
+        </div>
+        <div class="col-md-3">
+            <div id="scorePercent">&nbsp;</div>
+        </div>
     </div>
-</div>
-<br>
-<div class="row text-center">
-    <div class="col-md-4">
-    <button class="btn btn-outline-info btn-sm btn-outline-custom" type="button" id="playAgain" onclick="playIntervalAgain()">Play Again</button>
+    <br>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="playSimultaneously" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            One Note at a Time
+        </button>
+        <div class="dropdown-menu" aria-labelledby="playSilmultaneously">
+            <a class="dropdown-item" href="#" id="simultaneous">Simultaneous</a>
+            <a class="dropdown-item" href="#" id="oneNoteAtATime">One Note at a Time</a>
+        </div>
     </div>
-<div class="col-md-4">
-    <button class="btn btn-lg btn-info btn-custom" type="button" id="playInterval" onclick="playInterval()">Play a random interval</button>
-</div>
-<div class="col-md-4">
-    <button class="btn btn-outline-into btn-sm btn-outline-custom" type="button" id="relative" onclick="playRelativeNote()" >Play Tonal C</button>
-</div>
-</div>
-</br>
-<div class="narrow-page">
-<div class="card">
-<div class="card-body">
-<div class="row">
-    <div class="col-md-6">
-        <button name="answer" value="0" class="intervalAnswer btn btn-info btn-sm btn-custom">Unison</button>
+    <br>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <button class="btn btn-outline-info btn-sm btn-outline-custom" type="button" id="playAgain" onclick="playIntervalAgain()">Play Again</button>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-lg btn-info btn-custom" type="button" id="playInterval" onclick="playInterval()">Play a random interval</button>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-outline-into btn-sm btn-outline-custom" type="button" id="relative" onclick="playRelativeNote()">Play Tonal C</button>
+        </div>
     </div>
-    <div class="col-md-6">
-        <button name="answer" value="12" class="intervalAnswer btn btn-info btn-sm btn-custom">Octave</button>
+    </br>
+    <div class="narrow-page">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2 offset-md-1">
+                        <button name="answer" value="0" class="intervalAnswer btn btn-info btn-sm btn-custom">Unison</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button name="answer" value="12" class="intervalAnswer btn btn-info btn-sm btn-custom">Octave</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button name="answer" value="1" class="intervalAnswer btn btn-info btn-sm btn-custom">Minor 2nd</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button name="answer" value="2" class="intervalAnswer btn btn-info btn-sm btn-custom">Major 2nd</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button name="answer" value="3" class="intervalAnswer btn btn-info btn-sm btn-custom">Minor 3rd</button>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-2 offset-md-1">
+                        <button name="answer" value="3" class="intervalAnswer btn btn-info btn-sm btn-custom">Minor 3rd</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button name="answer" value="4" class="intervalAnswer btn btn-info btn-sm btn-custom">Major 3rd</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button name="answer" value="5" class="intervalAnswer btn btn-info btn-sm btn-custom">Perfect 4th</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button name="answer" value="6" class="intervalAnswer btn btn-info btn-sm btn-custom">Flat 5th</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button name="answer" value="7" class="intervalAnswer btn btn-info btn-sm btn-custom">Perfect 5th</button>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-2 offset-md-2">
+                        <button name="answer" value="8" class="intervalAnswer btn btn-info btn-sm btn-custom">Minor 6th</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button name="answer" value="9" class="intervalAnswer btn btn-info btn-sm btn-custom">Major 6th</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button name="answer" value="10" class="intervalAnswer btn btn-info btn-sm btn-custom">Minor 7th</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button name="answer" value="11" class="intervalAnswer btn btn-info btn-sm btn-custom">Major 7th</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<br>
-<div class="row">
-<div class="col-md-6">
-<button name="answer" value="1" class="intervalAnswer btn btn-info btn-sm btn-custom">Minor 2nd</button>
-</div>
-<div class="col-md-6">
-<button name="answer" value="2" class="intervalAnswer btn btn-info btn-sm btn-custom">Major 2nd</button>
-</div>
-</div>
-<br>
-<div class="row">
-<div class="col-md-6">
-<button name="answer" value="3" class="intervalAnswer btn btn-info btn-sm btn-custom">Minor 3rd</button>
-</div>
-<div class="col-md-6">
-<button name="answer" value="4" class="intervalAnswer btn btn-info btn-sm btn-custom">Major 3rd</button>
-</div>
-</div>
-<br>
-<div class="row">
-<div class="col-md-4">
-<button name="answer" value="5" class="intervalAnswer btn btn-info btn-sm btn-custom">Perfect 4th</button>
-</div>
-<div class="col-md-4">
-<button name="answer" value="6" class="intervalAnswer btn btn-info btn-sm btn-custom">Flat 5th</button>
-</div>
-<div class="col-md-4">
-<button name="answer" value="7" class="intervalAnswer btn btn-info btn-sm btn-custom">Perfect 5th</button>
-</div>
-</div>
-<br>
-<div class="row">
-<div class="col-md-6">
-<button name="answer" value="8" class="intervalAnswer btn btn-info btn-sm btn-custom">Minor 6th</button>
-</div>
-<div class="col-md-6">
-<button name="answer" value="9" class="intervalAnswer btn btn-info btn-sm btn-custom">Major 6th</button>
-</div>
-</div>
-<br>
-<div class="row">
-<div class="col-md-6">
-<button name="answer" value="10" class="intervalAnswer btn btn-info btn-sm btn-custom">Minor 7th</button>
-</div> 
-<div class="col-md-6">
-<button name="answer" value="11" class="intervalAnswer btn btn-info btn-sm btn-custom">Major 7th</button>
-</div>
-</div>
-<br>
-</div>
-</div>
-</div>
     <input id="firstNote" type="hidden" name="firstNote" class="firstNote" />
     <input id="secondNote" type="hidden" name="secondNote" class="secondNote" />
-<br>
-<div class="row">
-    <div class="col-md-12 text-center lead">
-        <div id="scoreOutput"></div>
-        <div id="form-messages"></div>
+    <br>
+    <div class="row">
+        <div class="col-md-12 text-center lead">
+            <div id="form-messages"></div>
+        </div>
     </div>
-</div>
 </div>

@@ -25,7 +25,8 @@ $(document).ready(function(){
             .done(function(response) {
                 // Set the message text.
                 $(formMessages).text(response.message);  
-                $(scoreOutput).text(response.score);    
+                $(scoreOutput).text(response.score);
+                $("#scorePercent").text(response.percent);  
                 // Clear the form.
                 if (response.message == "Yes you got it!") {
                     $(".correctAnswer").val("");
@@ -57,7 +58,8 @@ $(document).ready(function(){
             .done(function(response) {
                 // Set the message text.
                 $(formMessages).text(response.message);          
-                $(scoreOutput).text(response.score);        
+                $(scoreOutput).text(response.score);   
+                $("#scorePercent").text(response.percent);       
                 // Clear the form.
                 if (response.message == "Yes you got it!") {
                     $(".firstNote").val("");

@@ -115,23 +115,34 @@ app.post("/api/users", (req, res) => {
     if (req.body.firstNote) {
         if (Math.abs(req.body.secondNote - req.body.firstNote) == req.body.answer) {
             numOfRightAnswer++;
-            res.json({message: "Yes you got it!", score: numOfRightAnswer + "/" + tries});
+            res.json({message: "Yes you got it!", 
+            score: numOfRightAnswer + "/" + tries,
+            percent: (numOfRightAnswer/tries).toFixed(2)*100 + "%"  
+        });
             //res.send("Yes you got it!");
         } else {
-            res.json({message: "Opps! That wasn't it.", score: numOfRightAnswer + "/" + tries});
+            res.json({message: "Opps! That wasn't it.", 
+            score: numOfRightAnswer + "/" + tries,
+            percent: (numOfRightAnswer/tries).toFixed(2)*100 + "%"   
+        });
             //res.send("Opps! That wasn't it.");
         }
     } else if (req.body.answer == req.body.correctAnswer 
     || req.body.answer == req.body.correctAnswer - 12) {
         numOfRightAnswer++;
-        res.json({message: "Yes you got it!", score: numOfRightAnswer + "/" + tries});
+        res.json({message: "Yes you got it!", 
+        score: numOfRightAnswer + "/" + tries,
+        percent: (numOfRightAnswer/tries).toFixed(2)*100 + "%" 
+    });
         //res.json(req.body);
         //res.send("Yes you got it!");
     } 
     else {
         //res.send("Opps! That wasn't it.");
-        res.json({message: "Opps! That wasn't it.", score: numOfRightAnswer + "/" + tries});
-
+        res.json({message: "Opps! That wasn't it.", 
+        score: numOfRightAnswer + "/" + tries,
+        percent: (numOfRightAnswer/tries).toFixed(2)*100 + "%"   
+    });
     }
 });
 /* 

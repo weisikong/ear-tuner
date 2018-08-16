@@ -42,8 +42,8 @@
 }
 
 .narrow-page {
-    width: 50%;
-    margin: auto;
+/*     width: 50%;
+ */    margin: auto;
 }
 
 body {
@@ -108,3 +108,12 @@ footer {
     padding-top: 0px;
 }
 
+#scoreOutput, #scorePercent {
+    color: rgb(87, 197, 183);
+    font-size: x-large;
+}
+
+.card {
+    background-color: rgb(244, 247, 246);
+    border: none;
+}
