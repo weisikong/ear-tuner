@@ -68,8 +68,6 @@ app.use(function(req,res,next){
 
 app.get("/", (req, res) =>  {
     res.render('home', {});
-    //html = fs.readFileSync("views/home.html", "utf8");
-    //res.send(html);
 });
 
 app.get("/practices", function(req, res) {
@@ -101,6 +99,8 @@ app.get("/pitch", function(req, res) {
 });
 
 app.get("/interval", function(req, res) {
+    numOfRightAnswer = 0;
+    tries = 0;
     res.render('interval', {});
 });
 
@@ -114,9 +114,12 @@ app.post("/api/users", (req, res) => {
     tries++;
     if (req.body.firstNote) {
         if (Math.abs(req.body.secondNote - req.body.firstNote) == req.body.answer) {
-            res.send("Yes you got it!");
+            numOfRightAnswer++;
+            res.json({message: "Yes you got it!", score: numOfRightAnswer + "/" + tries});
+            //res.send("Yes you got it!");
         } else {
-            res.send("Opps! That wasn't it.");
+            res.json({message: "Opps! That wasn't it.", score: numOfRightAnswer + "/" + tries});
+            //res.send("Opps! That wasn't it.");
         }
     } else if (req.body.answer == req.body.correctAnswer 
     || req.body.answer == req.body.correctAnswer - 12) {

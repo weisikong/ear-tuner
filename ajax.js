@@ -15,7 +15,6 @@ $(document).ready(function(){
     $(".answer").click(function(){        
         var answerValue = $(this).val();
         var correctValue = $(".correctAnswer").val();
-        //var score = $("input#score").val();
         var buttonData = {"answer": answerValue, "correctAnswer": correctValue};
         if (correctValue) {
             $.ajax({
@@ -24,23 +23,15 @@ $(document).ready(function(){
                 data: buttonData
             })   
             .done(function(response) {
-                // Make sure that the formMessages div has the 'success' class.
-                /* $(formMessages).removeClass('error');
-                $(formMessages).addClass('success'); */
-            
                 // Set the message text.
                 $(formMessages).text(response.message);  
-                //console.log(response);
-                $(scoreOutput).text(response.score);        
+                $(scoreOutput).text(response.score);    
                 // Clear the form.
-                $('#answer').val('');
-                //$('#correctAnswer').val('');   
+                if (response.message == "Yes you got it!") {
+                    $(".correctAnswer").val("");
+                }
             })
-            .fail(function(data) {
-                // Make sure that the formMessages div has the 'error' class.
-                $(formMessages).removeClass('success');
-                $(formMessages).addClass('error');
-            
+            .fail(function(data) {            
                 // Set the message text.
                 if (data.responseText !== '') {
                     $(formMessages).text(data.responseText);
@@ -64,22 +55,15 @@ $(document).ready(function(){
                 data: buttonData
             })   
             .done(function(response) {
-                // Make sure that the formMessages div has the 'success' class.
-                $(formMessages).removeClass('error');
-                $(formMessages).addClass('success');
-            
                 // Set the message text.
-                $(formMessages).text(response);          
-                
+                $(formMessages).text(response.message);          
+                $(scoreOutput).text(response.score);        
                 // Clear the form.
-                $('#answer').val('');
-                //$('#correctAnswer').val('');   
+                if (response.message == "Yes you got it!") {
+                    $(".firstNote").val("");
+                }
             })
-            .fail(function(data) {
-                // Make sure that the formMessages div has the 'error' class.
-                $(formMessages).removeClass('success');
-                $(formMessages).addClass('error');
-            
+            .fail(function(data) {            
                 // Set the message text.
                 if (data.responseText !== '') {
                     $(formMessages).text(data.responseText);
