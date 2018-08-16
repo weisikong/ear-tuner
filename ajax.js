@@ -165,34 +165,3 @@ $(document).ready(function(){
     });
 });
 
-$(document).ready(function(){
-    console.log("document ready!");
-    /* $("#beginTest").click(function(){
-        $("#mainContent").remove();
-        //$("#test").text("{{> testPitch}}");
-        $.ajax({
-            type: 'GET',
-            url: "/testPitch"
-        })   
-        .done(function(response) {
-            // Set the message text.
-            $("#test").text(response);          
-            
-        })
-        .fail(function(data) {
-            // Make sure that the formMessages div has the 'error' class.
-            $(formMessages).removeClass('success');
-            $(formMessages).addClass('error');
-        
-            // Set the message text.
-            if (data.responseText !== '') {
-                $(formMessages).text(data.responseText);
-            } else {
-                $(formMessages).text('Oops! An error occured and your message could not be sent.');
-            }
-        });
-        
-         
-    }); */
-});
-

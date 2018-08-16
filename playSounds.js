@@ -51,28 +51,22 @@ notes = ["a",
     "g-sharp-2"];
 */
 instruments = ["piano", "flute", "recorder", "harp"];
-var tries = 0;
 
 function playPiano() {
     index = Math.floor(Math.random() * 12);    
-    index2 = 0;
+    index2 = 0; //needs this in playAgain()
 
     document.getElementById("form-messages").innerHTML = "";
     document.getElementById("correctAnswer").value = index;
     
-
     var audio = new Audio("/soundNotes/piano-" + notes[index] + ".wav");
     audio.play();
-    pitchTries++;
-    document.getElementById("tries").value = tries;
-    console.log(pitchTries);
 }
 
 function playPiano2Octaves() {
     console.log(notes);
     index = Math.floor(Math.random() * 24);
-    index2 = 0;
-
+    index2 = 0; //needs this in playAgain()
     document.getElementById("form-messages").innerHTML = "";
     document.getElementById("correctAnswer").value = index;
 
@@ -87,8 +81,6 @@ function playMultiInstruments() {
     index = Math.floor(Math.random() * 12);
     index2 = Math.floor(Math.random() * 4);
     
-    
-
     document.getElementById("form-messages").innerHTML = "";
     document.getElementById("correctAnswer").value = index;
 

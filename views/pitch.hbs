@@ -1,15 +1,37 @@
 <div class="jumbotron">
 <div class="row">
-<div class="col-md-12">
+<div class="col-md-4">
 <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="displayStyle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Display
+        Display Style
     </button>
     <div class="dropdown-menu" aria-labelledby="displayStyle">
         <a class="dropdown-item" href="#" id="letterButtons" >#+b</a>
         <a class="dropdown-item" href="#" id="allSharps">#</a>
         <a class="dropdown-item" href="#" id="allFlats" >b</a>
         <a class="dropdown-item" href="#" id="dolremiButtons" disabled >dol re mi</a>
+    </div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="range" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Range
+    </button>
+    <div class="dropdown-menu" aria-labelledby="range">
+        <a class="dropdown-item" href="#" id="oneOctave" >One Octave</a>
+        <a class="dropdown-item" href="#" id="twoOctaves">Two Octaves</a>
+    </div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="instrument" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Instrument
+    </button>
+    <div class="dropdown-menu" aria-labelledby="instrument">
+        <a class="dropdown-item" href="#" id="pianoOnly" >Piano only</a>
+        <a class="dropdown-item" href="#" id="multiInstruments">Multi-instrument</a>
     </div>
 </div>
 </div>
@@ -50,7 +72,7 @@
 <br><br><br>
 <div class="row">
 <div class="col-md-12 text-center lead">
-    <div id="scoreOutput"></div> 
+    <div id="scoreOutput"></div>
     <div id="form-messages"></div>
 </div>
 </div>
