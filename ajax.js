@@ -89,6 +89,7 @@ $(document).ready(function(){
         $("#button10").text("fa(#)");
         $("#button11").text("sol");
         $("#button12").text("sol(#)");
+        $("#displayStyle").text("dol re mi");
     });
 
     $("#letterButtons").click(function(){
@@ -104,6 +105,7 @@ $(document).ready(function(){
         $("#button10").text("F#");
         $("#button11").text("G");
         $("#button12").text("G#");
+        $("#displayStyle").text("#+b");
     });
 
     $("#allSharps").click(function(){
@@ -119,6 +121,7 @@ $(document).ready(function(){
         $("#button10").text("F#");
         $("#button11").text("G");
         $("#button12").text("G#");
+        $("#displayStyle").text("all #");
     });
 
     $("#allFlats").click(function(){
@@ -134,22 +137,27 @@ $(document).ready(function(){
         $("#button10").text("Gb");
         $("#button11").text("G");
         $("#button12").text("Ab");
+        $("#displayStyle").text("all b");
     });
 
     //range
     $("#oneOctave").click(function(){
         $("#play").attr("onclick", "playPiano()");
+        $("#range").text("One Octave");
     });
     $("#twoOctaves").click(function(){
         $("#play").attr("onclick", "playPiano2Octaves()");
+        $("#range").text("2 Octaves");
     });
 
     //instruments
     $("#pianoOnly").click(function(){
         $("#play").attr("onclick", "playPiano()");
+        $("#instrument").text("Piano Only");
     });
     $("#multiInstruments").click(function(){
         $("#play").attr("onclick", "playMultiInstruments()");
+        $("#instrument").text("Multi Instruments");
     });
 
     //interval
