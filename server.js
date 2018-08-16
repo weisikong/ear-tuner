@@ -4,6 +4,10 @@ const path = require("path");
 const app = express();
 const fs = require('fs');
 const exphbs = require('express-handlebars');
+const dataServiceAuth = require("./data-service-auth.js");
+const clientSessions = require("client-sessions");
+var numOfRightAnswer = 0;
+var tries = 0;
 
 const HTTP_PORT = process.env.PORT || 8080;
 
@@ -33,6 +37,26 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Parses the text as JSON and exposes the resulting object on req.body
 app.use(bodyParser.json());
 
+app.use(clientSessions({
+    cookieName: "session",
+    secret: "web322assignment6",
+    duration: 2 * 60 * 1000,
+    activeDuration: 1000 * 60
+}));
+
+//we will need this to conditionally hide/show elements to the user depending on whether they're currently logged in
+app.use(function(req, res, next) {
+    res.locals.session = req.session;
+    next();
+});
+
+function ensureLogin(req, res, next) {
+    if (!req.session.user) {
+        res.redirect("/login");
+    } else {
+        next();
+    }
+}
 // make your audio file available for the browser
 app.use(express.static('public'));
 
@@ -52,7 +76,7 @@ app.get("/practices", function(req, res) {
     res.render('practices', {});
 });
 
-app.get("/test", function(req, res) {
+app.get("/test", /* ensureLogin, */function(req, res) {
     res.render('upcoming', {});
 });
 
@@ -71,6 +95,8 @@ app.get("/ajax.js", (req, res) => {
 });
 
 app.get("/pitch", function(req, res) {
+    numOfRightAnswer = 0;
+    tries = 0;
     res.render('pitch', {});
 });
 
@@ -83,10 +109,9 @@ app.get("/chord", function(req, res) {
     res.render('chord', {});
 });
 
-
 app.post("/api/users", (req, res) => {
     console.log(req.body);
-    //res.json({message: "Your answer is: " + req.body.answer + ". The correct answer is: " + req.body.correctAnswer});
+    tries++;
     if (req.body.firstNote) {
         if (Math.abs(req.body.secondNote - req.body.firstNote) == req.body.answer) {
             res.send("Yes you got it!");
@@ -95,14 +120,72 @@ app.post("/api/users", (req, res) => {
         }
     } else if (req.body.answer == req.body.correctAnswer 
     || req.body.answer == req.body.correctAnswer - 12) {
-        res.send("Yes you got it!");
-    } else {
-        res.send("Opps! That wasn't it.");
+        numOfRightAnswer++;
+        res.json({message: "Yes you got it!", score: numOfRightAnswer + "/" + tries});
+        //res.json(req.body);
+        //res.send("Yes you got it!");
+    } 
+    else {
+        //res.send("Opps! That wasn't it.");
+        res.json({message: "Opps! That wasn't it.", score: numOfRightAnswer + "/" + tries});
+
     }
 });
+/* 
+app.get("/testPitch", ensureLogin, (req, res) => {
+    res.render("testPitch", {});
+}); 
 
+app.get("/register", (req, res) => {
+    res.render("register");
+});
+
+app.post("/register", (req, res) => {
+    dataServiceAuth.registerUser(req.body)
+    .then(() => {
+        res.render("register", {successMessage: "User created"});
+    })
+    .catch((err) => {
+        res.render("register", {errorMessage: err, userName: req.body.userName});
+    });
+});
+
+app.get("/login", (req, res) => {
+    res.render("login");
+});
+
+app.post("/login", (req, res) => {
+    req.body.userAgent = req.get("User-Agent");
+    dataServiceAuth.checkUser(req.body)
+    .then((user) => {
+        req.session.user = {
+            userName: user.userName,
+            email: user.email,
+            loginHistory: user.loginHistory
+        }
+        res.redirect("/test");
+    })
+    .catch((err) => {
+        res.render("login", {errorMessage: err, userName: req.body.userName});
+    })
+});
+
+app.get("/logout", (req, res) => {
+    req.session.reset();
+    res.redirect("/");
+});
+ */
 app.use((req, res) => {
     res.status(404).send("Page not found");
 });
 
 app.listen(HTTP_PORT, onHttpStart);
+
+/* dataServiceAuth.initialize()
+.then(() => {
+    app.listen(HTTP_PORT, onHttpStart);
+})
+.catch((err) => {
+    console.log("Unable to start server: " + err);
+}) */
+
