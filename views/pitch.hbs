@@ -1,10 +1,11 @@
 <div class="jumbotron">
+    <div class="media-only rotate"><i class="fas fa-mobile"></i> Rotate your phone to get full view. </div>
     <div class="row">
         <div class="col-md-3 offset-md-3"><div id="scoreOutput">&nbsp;</div></div>
         <div class="col-md-3"><div id="scorePercent">&nbsp;</div></div>
     </div>
         <br>
-<div class="row">
+<div class="row big-scr-only">
 <div class="col-md-4">
 <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="displayStyle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -39,9 +40,10 @@
         <a class="dropdown-item" href="#" id="multiInstruments">Multi-instrument</a>
     </div>
 </div>
-</div>
+<br>
 </div>
 <br>
+</div>
 <div class="row">
     <div class="col-md-6">
     <button class="btn btn-outline-info btn-outline-custom" type="button" id="relative" onclick="playRelativeNote()">Play tonal C</button>
@@ -77,5 +79,43 @@
 <div class="col-md-12 text-center lead">
     <div id="form-messages"></div>
 </div>
+</div>
+<div class="row media-only">
+<div class="col-lg-4">
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="displayStyle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        # + b
+    </button>
+    <div class="dropdown-menu" aria-labelledby="displayStyle">
+        <a class="dropdown-item" href="#" id="letterButtons" >#+b</a>
+        <a class="dropdown-item" href="#" id="allSharps">all #</a>
+        <a class="dropdown-item" href="#" id="allFlats" >all b</a>
+        <a class="dropdown-item" href="#" id="dolremiButtons" disabled >dol re mi</a>
+    </div>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="range" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        One Octave
+    </button>
+    <div class="dropdown-menu" aria-labelledby="range">
+        <a class="dropdown-item" href="#" id="oneOctave" >One Octave</a>
+        <a class="dropdown-item" href="#" id="twoOctaves">Two Octaves</a>
+    </div>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="instrument" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Piano Only
+    </button>
+    <div class="dropdown-menu" aria-labelledby="instrument">
+        <a class="dropdown-item" href="#" id="pianoOnly" >Piano only</a>
+        <a class="dropdown-item" href="#" id="multiInstruments">Multi-instrument</a>
+    </div>
+</div>
+</div>
+<br>
 </div>
 </div>
