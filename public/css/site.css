@@ -87,6 +87,7 @@
 
     .rotate {display: none;}
 
+    .pitch-options {width: 30%; display: inline-block;}
 }
 
 /* If the screen size is 600px wide or less, hide the element */
