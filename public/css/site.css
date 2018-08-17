@@ -33,8 +33,61 @@
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {}
 
-@media only screen and (orientation: landscape) {
-    
+.media-only {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+    main.container {
+        margin: auto;
+        padding-top: 10px;
+        width: 100%;
+        max-width: none;
+    }
+    .starter-template {
+        width: 100%;
+    }
+    .jumbotron {
+        width: 90%;
+        margin: auto;
+    }
+
+    .big-scr-only {
+        display: none;
+    }
+    .media-only {
+        display: inline;
+    }
+    #button1 {width: 15%; margin-bottom: 4px;}
+    #button2 {width: 15%; margin-bottom: 4px;}
+    #button3 {width: 15%; margin-bottom: 4px;}
+    #button4 {width: 15%; margin-bottom: 4px;}
+    #button5 {width: 15%; margin-bottom: 4px;}
+    #button6 {width: 15%; margin-bottom: 4px;}
+    #button7 {width: 15%; margin-left: 4px; margin-bottom: 4px;}
+    #button8 {width: 15%; margin-bottom: 4px;}
+    #button9 {width: 15%; margin-bottom: 4px;}
+    #button10 {width: 15%; margin-bottom: 4px;}
+    #button11 {width: 15%; margin-bottom: 4px;}
+    #button12 {width: 15%; margin-bottom: 4px;}
+
+    #unison {width: 23%; margin-bottom: 4px;}
+    #octave {width: 23%; margin-bottom: 4px;}
+    #min2 {width: 23%; margin-bottom: 4px;}
+    #maj2 {width: 23%; margin-bottom: 4px;}
+    #min3 {width: 16.7%; margin-bottom: 4px;}
+    #maj3 {width: 16.7%; margin-bottom: 4px;}
+    #perf4 {width: 16.7%; margin-bottom: 4px;}
+    #flat5 {width: 16.7%; margin-bottom: 4px;}
+    #perf5 {width: 16.7%; margin-bottom: 4px;}
+    #min6 {width: 23%; margin-bottom: 4px;}
+    #maj6 {width: 23%; margin-bottom: 4px;}
+    #min7 {width: 23%; margin-bottom: 4px;}
+    #maj7 {width: 23%; margin-bottom: 4px;}
+
+    .rotate {display: none;}
+
+    .pitch-options {width: 30%; display: inline-block;}
 }
 
 /* If the screen size is 600px wide or less, hide the element */
@@ -48,7 +101,11 @@
 }
 
 body {
-    background-color: rgb(244, 247, 246) !important
+    background-color: rgb(244, 247, 246) !important;
+}
+
+.jumbotron {
+    padding:1em;
 }
 footer {
     text-align: center;
@@ -60,14 +117,24 @@ footer {
 }
 
 @media only screen and (max-width: 414px) {
+    body {
+        line-height: normal;
+    }
     .btn {
-        margin-bottom: 4px;
+        margin-bottom: 7px;
         width: 85%;
     }
     .footer {
         line-height: 20px;
     }
+    .big-scr-only {
+        display: none;
+    }
+    .media-only {
+        display: inline;
+    }
 }
+
 
 .btn-custom {
     background-color: rgb(87, 197, 183)!important;
@@ -118,4 +185,7 @@ footer {
 .card {
     background-color: rgb(244, 247, 246);
     border: none;
+    width: 80%;
+    margin: auto;
+
 }
