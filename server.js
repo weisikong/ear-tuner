@@ -117,13 +117,13 @@ app.post("/api/users", (req, res) => {
             numOfRightAnswer++;
             res.json({message: "Yes you got it!", 
             score: numOfRightAnswer + "/" + tries,
-            percent: (numOfRightAnswer/tries).toFixed(2)*100 + "%"  
+            percent: ((numOfRightAnswer/tries)*100).toFixed(0) + "%"  
         });
             //res.send("Yes you got it!");
         } else {
             res.json({message: "Opps! That wasn't it.", 
             score: numOfRightAnswer + "/" + tries,
-            percent: (numOfRightAnswer/tries).toFixed(2)*100 + "%"   
+            percent: ((numOfRightAnswer/tries)*100).toFixed(0) + "%"   
         });
             //res.send("Opps! That wasn't it.");
         }
@@ -132,7 +132,7 @@ app.post("/api/users", (req, res) => {
         numOfRightAnswer++;
         res.json({message: "Yes you got it!", 
         score: numOfRightAnswer + "/" + tries,
-        percent: (numOfRightAnswer/tries).toFixed(2)*100 + "%" 
+        percent: ((numOfRightAnswer/tries)*100).toFixed(0) + "%" 
     });
         //res.json(req.body);
         //res.send("Yes you got it!");
@@ -141,9 +141,11 @@ app.post("/api/users", (req, res) => {
         //res.send("Opps! That wasn't it.");
         res.json({message: "Opps! That wasn't it.", 
         score: numOfRightAnswer + "/" + tries,
-        percent: (numOfRightAnswer/tries).toFixed(2)*100 + "%"   
+        percent: ((numOfRightAnswer/tries)*100).toFixed(0) + "%"   
     });
     }
+    console.log(((numOfRightAnswer/tries)*100).toFixed(0));
+
 });
 /* 
 app.get("/testPitch", ensureLogin, (req, res) => {
