@@ -45,8 +45,9 @@
                 <li></li>
             </ul>
             
-{{!--             {{#if session.user}}
+             {{#if session.user}}
                 <form class="navbar-form navbar-right">
+                    <div id="userPercent">{{session.user.percentage}}</div>
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" id="userMenu" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;{{session.user.userName}}&nbsp;&nbsp;
@@ -70,7 +71,7 @@
                         <span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Log In</a>
                 </form>
             {{/if}}
- --}}        </div>
+ </div>
     </nav>
     <main role="main" class="container">
         <div class="starter-template">

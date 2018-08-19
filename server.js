@@ -151,7 +151,7 @@ app.post("/api/users", (req, res) => {
 app.get("/testPitch", ensureLogin, (req, res) => {
     res.render("testPitch", {});
 }); 
-
+ */
 app.get("/register", (req, res) => {
     res.render("register");
 });
@@ -190,18 +190,18 @@ app.get("/logout", (req, res) => {
     req.session.reset();
     res.redirect("/");
 });
- */
+
 app.use((req, res) => {
     res.status(404).send("Opps! Page not found. Are you sure you wanna go there?");
 });
 
-app.listen(HTTP_PORT, onHttpStart);
+//app.listen(HTTP_PORT, onHttpStart);
 
-/* dataServiceAuth.initialize()
+dataServiceAuth.initialize()
 .then(() => {
     app.listen(HTTP_PORT, onHttpStart);
 })
 .catch((err) => {
     console.log("Unable to start server: " + err);
-}) */
+})
 

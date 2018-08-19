@@ -8,27 +8,7 @@ var userSchema = new Schema({
     },
     "password": String,
     "email": String,
-    "score1": {
-        "type": Number,
-        "default": 0
-      },
-    "try1":  {
-        "type": Number,
-        "default": 0
-      },
-    "score2":  {
-        "type": Number,
-        "default": 0
-      },
-    "try2":  {
-        "type": Number,
-        "default": 0
-      },
-    "score3":  {
-        "type": Number,
-        "default": 0
-      },
-    "try3":  {
+    "percentage": {
         "type": Number,
         "default": 0
       },
