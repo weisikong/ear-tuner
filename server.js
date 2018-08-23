@@ -130,6 +130,7 @@ app.post("/api/users", (req, res) => {
     } else if (req.body.answer == req.body.correctAnswer 
     || req.body.answer == req.body.correctAnswer - 12) {
         numOfRightAnswer++;
+        dataServiceAuth.updatePercentage(req.session.user.userName, ((numOfRightAnswer/tries)*100).toFixed(0));
         res.json({message: "Yes you got it!", 
         score: numOfRightAnswer + "/" + tries,
         percent: ((numOfRightAnswer/tries)*100).toFixed(0) + "%" 
@@ -139,6 +140,7 @@ app.post("/api/users", (req, res) => {
     } 
     else {
         //res.send("Opps! That wasn't it.");
+        dataServiceAuth.updatePercentage(req.session.user.userName, ((numOfRightAnswer/tries)*100).toFixed(0));
         res.json({message: "Opps! That wasn't it.", 
         score: numOfRightAnswer + "/" + tries,
         percent: ((numOfRightAnswer/tries)*100).toFixed(0) + "%"   
@@ -177,7 +179,8 @@ app.post("/login", (req, res) => {
         req.session.user = {
             userName: user.userName,
             email: user.email,
-            loginHistory: user.loginHistory
+            loginHistory: user.loginHistory,
+            percentage: user.percentage
         }
         res.redirect("/test");
     })

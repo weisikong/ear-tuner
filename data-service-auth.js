@@ -135,3 +135,11 @@ module.exports.checkUser = function(userData){
          })
     });
 }
+
+module.exports.updatePercentage = function(username, pctg) {
+    User.update(
+        {userName: username},
+        {$set: {percentage: pctg}}
+    )
+    .exec()
+}
