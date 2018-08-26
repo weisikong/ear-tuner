@@ -19,7 +19,7 @@ $(document).ready(function(){
         if (correctValue) {
             $.ajax({
                 type: 'POST',
-                url: "/api/users",
+                url: "/api/pitch",
                 data: buttonData
             })   
             .done(function(response) {
@@ -52,7 +52,7 @@ $(document).ready(function(){
         if (firstNote) {
             $.ajax({
                 type: 'POST',
-                url: "/api/users",
+                url: "/api/interval",
                 data: buttonData
             })   
             .done(function(response) {

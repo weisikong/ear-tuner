@@ -126,7 +126,7 @@ function getElement(ele) {
     $("#storingPercentage").text = ele;
 }
 
-app.post("/api/users", (req, res) => {
+app.post("/api/pitch", (req, res) => {
     tries++;
     if (req.body.firstNote) {
         if (Math.abs(req.body.secondNote - req.body.firstNote) == req.body.answer) {
@@ -167,6 +167,34 @@ app.post("/api/users", (req, res) => {
             console.log(err);
         });
     }
+});
+
+app.post("/api/interval", (req, res) => {
+    tries++;
+    var message = "";
+    if (Math.abs(req.body.secondNote - req.body.firstNote) == req.body.answer) {
+        numOfRightAnswer++;
+        message = "Yes You got it";
+    } else {
+        message = "Opps! That wasn't it.";
+    }
+    let successRate = numOfRightAnswer * 100.0 / tries;
+    dataServiceAuth.updatePercentage(req.session.user.userName, successRate)
+    .then(() => {
+        return dataServiceAuth.returnUpdatedUser(req.session.user.userName)
+    })
+    .then((user) => {
+        //console.log(message + " " + user.percentage);
+        req.session.user.percentage = successRate.toFixed(0);
+        res.json({
+            message: message,
+            score: numOfRightAnswer + "/" + tries,
+            percent: successRate.toFixed(0) + "%"
+        });
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 });
 /* 
 app.get("/testPitch", ensureLogin, (req, res) => {
