@@ -46,18 +46,21 @@
             </ul>
             
              {{#if session.user}}
-                <form class="navbar-form navbar-right">
-                    <div id="userPercent">{{session.user.percentage}}</div>
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="userMenu" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;{{session.user.userName}}&nbsp;&nbsp;
+                <form class="form-inline my-2 my-lg-0">
+                    <div class="nav-item dropdown">
+                        <button class="btn btn-primary dropdown-toggle btn-user" type="button" id="userMenu" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;{{session.user.userName}}&nbsp;&nbsp;                        
+
                             <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="userMenu">
-                            <li>
-                                <a href="/userHistory">User History</a>
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                            <li id="userPercent" class="dropdown-item">
+                                Hit Rate: {{session.user.percentage}} %
                             </li>
-                            <li>
+                            <li class="dropdown-item">
+                                <a href="/profile">Profile</a>
+                            </li>
+                            <li class="dropdown-item">
                                 <a href="/logout">Log Out</a>
                             </li>
                         </ul>
@@ -65,9 +68,9 @@
                 </form>
             {{else}}
                 <form class="navbar-form navbar-right">
-                    <a href="/register" class="btn btn-success">
+                    <a href="/register" class="btn btn-success btn-user">
                         <span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;Register</a>
-                    <a href="/login" class="btn btn-primary">
+                    <a href="/login" class="btn btn-primary btn-user">
                         <span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Log In</a>
                 </form>
             {{/if}}

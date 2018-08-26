@@ -9,6 +9,16 @@ const clientSessions = require("client-sessions");
 var numOfRightAnswer = 0;
 var tries = 0;
 
+
+var jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = (new JSDOM('')).window;
+global.document = document;
+
+var $ = require('jquery')(window);
+
+
 const HTTP_PORT = process.env.PORT || 8080;
 
 
@@ -17,19 +27,7 @@ function onHttpStart() {
     console.log("Express http server listening on: " + HTTP_PORT);
   }
 
-// Register handlebars as the rendering engine for views
-app.engine('.hbs', exphbs({
-    extname: '.hbs',
-    helpers: {
-        navLink: function (url, options) {
-            return '<li class="nav-item ' +
-                ((url == app.locals.activeRoute) ? ' active" ' : '"') +
-                '><a class="nav-link" href="' + url + '">' + options.fn(this) + '</a></li>';
-        }
-    },
-    defaultLayout: 'main'
-}));
-app.set('view engine', '.hbs');
+
 
 // Parses the text as URL encoded data and exposes the resulting object (containing the keys and values) on req.body
 app.use(bodyParser.urlencoded({extended: true}));
@@ -45,10 +43,25 @@ app.use(clientSessions({
 }));
 
 //we will need this to conditionally hide/show elements to the user depending on whether they're currently logged in
+
 app.use(function(req, res, next) {
     res.locals.session = req.session;
     next();
 });
+
+// Register handlebars as the rendering engine for views
+app.engine('.hbs', exphbs({
+    extname: '.hbs',
+    helpers: {
+        navLink: function (url, options) {
+            return '<li class="nav-item ' +
+                ((url == app.locals.activeRoute) ? ' active" ' : '"') +
+                '><a class="nav-link" href="' + url + '">' + options.fn(this) + '</a></li>';
+        }
+    },
+    defaultLayout: 'main'
+}));
+app.set('view engine', '.hbs');
 
 function ensureLogin(req, res, next) {
     if (!req.session.user) {
@@ -109,8 +122,11 @@ app.get("/chord", function(req, res) {
     res.render('chord', {});
 });
 
+function getElement(ele) {
+    $("#storingPercentage").text = ele;
+}
+
 app.post("/api/users", (req, res) => {
-    console.log(req.body);
     tries++;
     if (req.body.firstNote) {
         if (Math.abs(req.body.secondNote - req.body.firstNote) == req.body.answer) {
@@ -119,35 +135,38 @@ app.post("/api/users", (req, res) => {
             score: numOfRightAnswer + "/" + tries,
             percent: ((numOfRightAnswer/tries)*100).toFixed(0) + "%"  
         });
-            //res.send("Yes you got it!");
         } else {
             res.json({message: "Opps! That wasn't it.", 
             score: numOfRightAnswer + "/" + tries,
             percent: ((numOfRightAnswer/tries)*100).toFixed(0) + "%"   
         });
-            //res.send("Opps! That wasn't it.");
         }
-    } else if (req.body.answer == req.body.correctAnswer 
-    || req.body.answer == req.body.correctAnswer - 12) {
-        numOfRightAnswer++;
-        dataServiceAuth.updatePercentage(req.session.user.userName, ((numOfRightAnswer/tries)*100).toFixed(0));
-        res.json({message: "Yes you got it!", 
-        score: numOfRightAnswer + "/" + tries,
-        percent: ((numOfRightAnswer/tries)*100).toFixed(0) + "%" 
-    });
-        //res.json(req.body);
-        //res.send("Yes you got it!");
-    } 
-    else {
-        //res.send("Opps! That wasn't it.");
-        dataServiceAuth.updatePercentage(req.session.user.userName, ((numOfRightAnswer/tries)*100).toFixed(0));
-        res.json({message: "Opps! That wasn't it.", 
-        score: numOfRightAnswer + "/" + tries,
-        percent: ((numOfRightAnswer/tries)*100).toFixed(0) + "%"   
-    });
+    } else {
+        var message = "";
+        if (req.body.answer == req.body.correctAnswer || req.body.answer == req.body.correctAnswer - 12) {
+            numOfRightAnswer++;
+            message = "Yes You got it";
+        } else {
+            message = "Opps! That wasn't it.";
+        }
+        let successRate = numOfRightAnswer * 100.0 / tries;
+        dataServiceAuth.updatePercentage(req.session.user.userName, successRate)
+        .then(() => {
+            return dataServiceAuth.returnUpdatedUser(req.session.user.userName)
+        })
+        .then((user) => {
+            //console.log(message + " " + user.percentage);
+            req.session.user.percentage = successRate.toFixed(0);
+            res.json({
+                message: message,
+                score: numOfRightAnswer + "/" + tries,
+                percent: successRate.toFixed(0) + "%"
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+        });
     }
-    console.log(((numOfRightAnswer/tries)*100).toFixed(0));
-
 });
 /* 
 app.get("/testPitch", ensureLogin, (req, res) => {
@@ -182,7 +201,7 @@ app.post("/login", (req, res) => {
             loginHistory: user.loginHistory,
             percentage: user.percentage
         }
-        res.redirect("/test");
+        res.redirect("/pitch");
     })
     .catch((err) => {
         res.render("login", {errorMessage: err, userName: req.body.userName});
@@ -193,6 +212,10 @@ app.get("/logout", (req, res) => {
     req.session.reset();
     res.redirect("/");
 });
+
+app.get("/profile", ensureLogin, (req, res) => {
+    res.render("profile");
+})
 
 app.use((req, res) => {
     res.status(404).send("Opps! Page not found. Are you sure you wanna go there?");
@@ -208,3 +231,4 @@ dataServiceAuth.initialize()
     console.log("Unable to start server: " + err);
 })
 
+//console.log(app._router.stack);

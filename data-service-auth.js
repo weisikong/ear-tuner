@@ -85,7 +85,6 @@ var passwordValid = function(candidatePassword, hashedPassword, cb) {
                 throw err;
                 reject(err);
             }
-            console.log(isMatched);
             resolve(isMatched);
         });
     })
@@ -137,9 +136,28 @@ module.exports.checkUser = function(userData){
 }
 
 module.exports.updatePercentage = function(username, pctg) {
-    User.update(
-        {userName: username},
-        {$set: {percentage: pctg}}
-    )
-    .exec()
+    return new Promise(function(resolve, reject) {
+        User.update(
+            {userName: username},
+            {$set: {percentage: pctg}}
+        )
+        .exec()
+        .then(() => {
+            resolve();
+        })
+    });
+    
+}
+
+module.exports.returnUpdatedUser = function(username) {
+    return new Promise(function(resolve, reject) {
+        User.find(
+            {userName: username}
+        )
+        .exec()
+        .then((users) => {
+            resolve(users[0]);
+        });
+        });
+    
 }
