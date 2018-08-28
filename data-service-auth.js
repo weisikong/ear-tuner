@@ -12,6 +12,10 @@ var userSchema = new Schema({
         "type": Number,
         "default": 0
       },
+    "pitchWrongAnswers": {
+    "type": Number,
+    "default": 0
+    },
     "pitchScore": {
         "type": Number,
         "default": 0
@@ -20,6 +24,10 @@ var userSchema = new Schema({
         "type": Number,
         "default": 0
       },
+    "intervalWrongAnswers": {
+    "type": Number,
+    "default": 0
+    },
     "intervalScore": {
         "type": Number,
         "default": 0
@@ -147,13 +155,12 @@ module.exports.checkUser = function(userData){
     });
 }
 
-module.exports.updatePitch = function(username, pctg, inc) {
+module.exports.updatePitch = function(username, incR, incW) {
     return new Promise(function(resolve, reject) {
         User.update(
             {userName: username},
             {
-                $set: {pitchScore: pctg},
-                $inc: {pitchRightAnswers: inc}
+                $inc: {pitchRightAnswers: incR, pitchWrongAnswers: incW}
             }
         )
         .exec()
@@ -163,14 +170,40 @@ module.exports.updatePitch = function(username, pctg, inc) {
     });
 }
 
-module.exports.updateInterval = function(username, pctg, inc) {
+module.exports.updatePitchPercent = function(username, pctg) {
+    return new Promise(function(resolve, reject) {
+        User.update(
+            {userName: username},
+            {$set: {pitchScore: pctg}}
+        )
+        .exec()
+        .then(() => {
+            resolve();
+        })
+    });
+}
+
+module.exports.updateInterval = function(username, pctg, incR, incW) {
     return new Promise(function(resolve, reject) {
         User.update(
             {userName: username},
             {
                 $set: {intervalScore: pctg},
-                $inc: {intervalRightAnswers: inc}
+                $inc: {intervalRightAnswers: incR, intervalWrongAnswers: incW}
             }
+        )
+        .exec()
+        .then(() => {
+            resolve();
+        })
+    });
+}
+
+module.exports.updateIntervalPercent = function(username, pctg) {
+    return new Promise(function(resolve, reject) {
+        User.update(
+            {userName: username},
+            {$set: {intervalScore: pctg}}
         )
         .exec()
         .then(() => {
