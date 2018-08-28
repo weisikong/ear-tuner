@@ -80,20 +80,17 @@ app.use(function(req,res,next){
 });
 
 app.get("/", (req, res) =>  {
-    res.render('home', {});
+    res.render('home');
 });
 
 app.get("/practices", function(req, res) {
-    res.render('practices', {});
+    res.render('practices');
 });
 
 app.get("/test", /* ensureLogin, */function(req, res) {
-    res.render('upcoming', {});
+    res.render('upcoming');
 });
 
-app.get("/how-to-use", function(req, res) {
-    res.render('howToUse', {});
-});
 
 app.get("/playSounds.js", (req, res) => {
     script = fs.readFileSync("playSounds.js", "utf8");
@@ -108,18 +105,18 @@ app.get("/ajax.js", (req, res) => {
 app.get("/pitch", function(req, res) {
     numOfRightAnswer = 0;
     tries = 0;
-    res.render('pitch', {});
+    res.render('pitch');
 });
 
 app.get("/interval", function(req, res) {
     numOfRightAnswer = 0;
     tries = 0;
-    res.render('interval', {});
+    res.render('interval');
 });
 
 
 app.get("/chord", function(req, res) {
-    res.render('chord', {});
+    res.render('upcoming');
 });
 
 app.post("/api/pitch", (req, res) => {
@@ -131,7 +128,7 @@ app.post("/api/pitch", (req, res) => {
         numOfRightAnswer++;
         incR = 1;
         incW = 0;
-        message = "Yes You got it";
+        message = "Yes You got it!";
     } else {
         incR = 0;
         incW = 1;
@@ -178,7 +175,7 @@ app.post("/api/interval", (req, res) => {
         numOfRightAnswer++;
         incR = 1;
         incW = 0;
-        message = "Yes You got it";
+        message = "Yes You got it!";
     } else {
         incR = 0;
         incW = 1;

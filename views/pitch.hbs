@@ -50,12 +50,12 @@
     </div>
     <br>
     <div class="col-md-6">
-    <button class="btn btn-outline-info btn-outline-custom" type="button" id="playAgain" onclick="playAgain()">Play Again</button>
+    <button class="btn btn-outline-info btn-outline-custom" type="button" id="playAgain" onclick="playAgain()"><i class="fas fa-undo"></i>&nbsp;&nbsp;Play Again</button>
     </div>
 </div>
 <p></p>
 <div class="text-center">
-    <button class="btn btn-lg btn-info btn-custom" type="button" id="play" onclick="playPiano()">Play a random note</button>
+    <button class="btn btn-lg btn-info btn-custom" type="button" id="play" onclick="playPiano()"><i class="fas fa-headphones-alt"></i>&nbsp;&nbsp;Play a random note</button>
 </div>
 </br>
 <button name="answer" value="0" class="answer pitch btn btn-info btn-custom" id="button1">A</button>
@@ -81,7 +81,7 @@
 </div>
 </div>
 {{#unless session.user}}
-<p><a href="/login">Sign in</a> to record your performance.</p>
+<p><a href="/login">Sign in</a> to record your scores.</p>
 {{/unless}}
 <div class="row media-only">
 <div class="pitch-options">

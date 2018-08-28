@@ -97,8 +97,9 @@
 }
 
 .narrow-page {
-/*     width: 50%;
- */    margin: auto;
+    width: 50%;
+    margin: auto;
+    text-align: center;
 }
 
 body {

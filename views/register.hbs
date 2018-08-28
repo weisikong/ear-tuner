@@ -6,11 +6,13 @@
                 <div class="alert alert-danger"> <strong>Error:</strong> {{errorMessage}}</div>
             {{/if}}
             {{#if successMessage}}
-            <div class="alert alert-success"> <strong>Success:</strong> {{successMessage}}</div><a class="btn btn-success pull-right" href="/login">&nbsp;&nbsp;&nbsp;Proceed to Log in&nbsp;&nbsp;&nbsp;</a><br /><br /><br />
+            <div class="alert alert-success"> <strong>Success:</strong> {{successMessage}}</div><a class="btn btn-info btn-custom" href="/login">&nbsp;&nbsp;&nbsp;Proceed to Log in&nbsp;&nbsp;&nbsp;</a><br /><br /><br />
             {{/if}}
             <hr />
             {{#unless successMessage}}
-            <form method="post" action="/register">
+{{!--             <form method="post">
+ --}}
+            <form method="post" onsubmit="return formValidation();" action="/register">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -39,8 +41,10 @@
                         </div>
                     </div>
                 </div>
-                <input type="submit" class="btn btn-info btn-custom" value="Register" />
-            </form>
+                <input type="submit" name="submit" class="btn btn-info btn-custom"  />
+{{!--                                 <input type="submit" name="submit" class="btn btn-info btn-custom" value="Register" />
+ --}}            </form>
+            <div id="errorMsg"></div>
             {{/unless}}
         </div>
     </div>
