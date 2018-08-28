@@ -80,6 +80,9 @@
     <div id="form-messages"></div>
 </div>
 </div>
+{{#unless session.user}}
+<p><a href="/login">Sign in</a> to record your performance.</p>
+{{/unless}}
 <div class="row media-only">
 <div class="pitch-options">
 <div class="dropdown">
