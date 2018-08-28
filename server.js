@@ -122,70 +122,58 @@ app.get("/chord", function(req, res) {
     res.render('chord', {});
 });
 
-function getElement(ele) {
-    $("#storingPercentage").text = ele;
-}
-
 app.post("/api/pitch", (req, res) => {
     tries++;
-    if (req.body.firstNote) {
-        if (Math.abs(req.body.secondNote - req.body.firstNote) == req.body.answer) {
-            numOfRightAnswer++;
-            res.json({message: "Yes you got it!", 
-            score: numOfRightAnswer + "/" + tries,
-            percent: ((numOfRightAnswer/tries)*100).toFixed(0) + "%"  
-        });
-        } else {
-            res.json({message: "Opps! That wasn't it.", 
-            score: numOfRightAnswer + "/" + tries,
-            percent: ((numOfRightAnswer/tries)*100).toFixed(0) + "%"   
-        });
-        }
+    var message = "";
+    var increment;
+    if (req.body.answer == req.body.correctAnswer || req.body.answer == req.body.correctAnswer - 12) {
+        numOfRightAnswer++;
+        increment = 1;
+        message = "Yes You got it";
     } else {
-        var message = "";
-        if (req.body.answer == req.body.correctAnswer || req.body.answer == req.body.correctAnswer - 12) {
-            numOfRightAnswer++;
-            message = "Yes You got it";
-        } else {
-            message = "Opps! That wasn't it.";
-        }
-        let successRate = numOfRightAnswer * 100.0 / tries;
-        dataServiceAuth.updatePercentage(req.session.user.userName, successRate)
-        .then(() => {
-            return dataServiceAuth.returnUpdatedUser(req.session.user.userName)
-        })
-        .then((user) => {
-            //console.log(message + " " + user.percentage);
-            req.session.user.percentage = successRate.toFixed(0);
-            res.json({
-                message: message,
-                score: numOfRightAnswer + "/" + tries,
-                percent: successRate.toFixed(0) + "%"
-            });
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+        increment = 0;
+        message = "Opps! That wasn't it.";
     }
+    let successRate = numOfRightAnswer * 100.0 / tries;
+    dataServiceAuth.updatePitch(req.session.user.userName, successRate, increment)
+    .then(() => {
+        return dataServiceAuth.returnUpdatedUser(req.session.user.userName) //no need to return user here
+    })
+    .then((user) => {
+        //console.log(message + " " + user.percentage);
+        req.session.user.pitchScore = successRate.toFixed(0); //successRate in database and in session might be different
+        res.json({
+            message: message,
+            score: numOfRightAnswer + "/" + tries,
+            percent: successRate.toFixed(0) + "%"
+        });
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+
 });
 
 app.post("/api/interval", (req, res) => {
     tries++;
     var message = "";
+    var increment;
     if (Math.abs(req.body.secondNote - req.body.firstNote) == req.body.answer) {
         numOfRightAnswer++;
+        increment = 1;
         message = "Yes You got it";
     } else {
+        increment = 0;
         message = "Opps! That wasn't it.";
     }
     let successRate = numOfRightAnswer * 100.0 / tries;
-    dataServiceAuth.updatePercentage(req.session.user.userName, successRate)
+    dataServiceAuth.updateInterval(req.session.user.userName, successRate, increment)
     .then(() => {
         return dataServiceAuth.returnUpdatedUser(req.session.user.userName)
     })
     .then((user) => {
         //console.log(message + " " + user.percentage);
-        req.session.user.percentage = successRate.toFixed(0);
+        req.session.user.intervalScore = successRate.toFixed(0);
         res.json({
             message: message,
             score: numOfRightAnswer + "/" + tries,
@@ -227,7 +215,8 @@ app.post("/login", (req, res) => {
             userName: user.userName,
             email: user.email,
             loginHistory: user.loginHistory,
-            percentage: user.percentage
+            pitchScore: user.pitchScore,
+            intervalScore: user.intervalScore
         }
         res.redirect("/pitch");
     })

@@ -8,7 +8,19 @@ var userSchema = new Schema({
     },
     "password": String,
     "email": String,
-    "percentage": {
+    "pitchRightAnswers": {
+        "type": Number,
+        "default": 0
+      },
+    "pitchScore": {
+        "type": Number,
+        "default": 0
+      },
+    "intervalRightAnswers": {
+        "type": Number,
+        "default": 0
+      },
+    "intervalScore": {
         "type": Number,
         "default": 0
       },
@@ -135,18 +147,36 @@ module.exports.checkUser = function(userData){
     });
 }
 
-module.exports.updatePercentage = function(username, pctg) {
+module.exports.updatePitch = function(username, pctg, inc) {
     return new Promise(function(resolve, reject) {
         User.update(
             {userName: username},
-            {$set: {percentage: pctg}}
+            {
+                $set: {pitchScore: pctg},
+                $inc: {pitchRightAnswers: inc}
+            }
         )
         .exec()
         .then(() => {
             resolve();
         })
     });
-    
+}
+
+module.exports.updateInterval = function(username, pctg, inc) {
+    return new Promise(function(resolve, reject) {
+        User.update(
+            {userName: username},
+            {
+                $set: {intervalScore: pctg},
+                $inc: {intervalRightAnswers: inc}
+            }
+        )
+        .exec()
+        .then(() => {
+            resolve();
+        })
+    });
 }
 
 module.exports.returnUpdatedUser = function(username) {
