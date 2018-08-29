@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container narrow-page">
     <div class="row">
         <div class="col-md-12">
             <h2>Welcome to Ear Tuner</h2>
@@ -10,9 +10,8 @@
             {{/if}}
             <hr />
             {{#unless successMessage}}
-{{!--             <form method="post">
- --}}
-            <form method="post" onsubmit="return formValidation();" action="/register">
+
+            <form method="post" action="/register">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
