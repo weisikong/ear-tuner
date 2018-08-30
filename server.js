@@ -105,6 +105,7 @@ app.get("/ajax.js", (req, res) => {
 app.get("/pitch", function(req, res) {
     numOfRightAnswer = 0;
     tries = 0;
+    console.log("pitch" + req.session.user);
     res.render('pitch');
 });
 
@@ -245,7 +246,8 @@ app.post("/login", (req, res) => {
             pitchScore: user.pitchScore,
             intervalScore: user.intervalScore
         }
-        res.redirect("/pitch");
+        console.log("in login route: " + req.session.user.userName);
+        res.redirect("/profile");
     })
     .catch((err) => {
         res.render("login", {errorMessage: err, userName: req.body.userName});
