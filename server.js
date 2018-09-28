@@ -102,6 +102,10 @@ app.get("/ajax.js", (req, res) => {
     res.send(script);
 });
 
+app.get("/about", function(req, res) {
+    res.render('about');
+});
+
 app.get("/pitch", function(req, res) {
     numOfRightAnswer = 0;
     tries = 0;
