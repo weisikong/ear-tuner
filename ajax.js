@@ -1,17 +1,5 @@
-/*
-var jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-const { window } = new JSDOM();
-const { document } = (new JSDOM('')).window;
-global.document = document;
-
-var $ = require('jquery')(window);
-*/
-
 $(document).ready(function(){
-    console.log("document ready!");
     var formMessages = $('#form-messages');
-
     $(".answer").click(function(){        
         var answerValue = $(this).val();
         var correctValue = $(".correctAnswer").val();
